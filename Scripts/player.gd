@@ -25,7 +25,7 @@ func movement(delta: float):
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	).normalized()
-	
+	 
 	if input:
 		pass
 		#print("play the walk anim")

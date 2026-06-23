@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dfwfxes1oeqa4"]
+
+[ext_resource type="Texture2D" uid="uid://kehe566fjrhy" path="res://Placeholders/icon.svg" id="1_7p1mj"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 12.0
+
+[node name="enemy" type="CharacterBody2D" unique_id=1155608225]
+scale = Vector2(0.225, 0.225)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1940102837]
+modulate = Color(1, 0.07450981, 0.25882354, 1)
+position = Vector2(12, 12)
+scale = Vector2(0.2109375, 0.2109375)
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1524388864]
+position = Vector2(12, 14)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=125785707]
+target_desired_distance = 20.0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.6156863, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1838448642]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

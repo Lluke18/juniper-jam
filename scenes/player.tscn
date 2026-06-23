@@ -24,12 +24,12 @@ pathFollow = NodePath("Path2D/PathFollow2D")
 wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2003258413]
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.07039983, 0.051200133)
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
 position = Vector2(-1.22, 0)
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.07039983, 0.051200133)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1103006166]
@@ -47,6 +47,7 @@ rotation = 0.04107278
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1689257528]
 position = Vector2(0, 2)
+scale = Vector2(0.43999892, 0.32000065)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]

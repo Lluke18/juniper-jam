@@ -11,6 +11,7 @@ size = Vector2(119, 122)
 size = Vector2(136, 135)
 
 [node name="HockJock" type="CharacterBody2D" unique_id=1652384883 groups=["enemies"]]
+scale = Vector2(0.23, 0.23)
 motion_mode = 1
 script = ExtResource("1_lx2wv")
 stats = ExtResource("2_ixy7k")
@@ -27,3 +28,5 @@ shape = SubResource("RectangleShape2D_xrivr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1626332248]
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1592708782]

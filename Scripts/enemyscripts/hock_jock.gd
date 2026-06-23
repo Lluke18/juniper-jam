@@ -1,6 +1,7 @@
 extends Enemy
 
 class_name HockJock
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 #initializing variables
 func _ready() -> void:
