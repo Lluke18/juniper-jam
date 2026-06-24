@@ -14,10 +14,6 @@ config/name="juniper-jam"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Placeholders/icon.svg"
 
-[autoload]
-
-CombatStats="*uid://cja235v2teuha"
-
 [display]
 
 window/stretch/mode="canvas_items"

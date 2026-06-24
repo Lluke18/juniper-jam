@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	
 
 func movement(delta: float):
 	var input = Vector2(

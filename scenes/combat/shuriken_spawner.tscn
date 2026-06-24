@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cs85g36tlohap"]
 
 [ext_resource type="Script" uid="uid://dnaxfthxim3fc" path="res://Scripts/combat/shuriken_spawner.gd" id="1_wr7r6"]
+[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="2_7vgau"]
 
 [node name="ShurikenSpawner" type="Node2D" unique_id=1000780227]
 script = ExtResource("1_wr7r6")
+combat_stats = ExtResource("2_7vgau")
 
 [node name="Timer" type="Timer" parent="." unique_id=1334661555]
 wait_time = 0.5
