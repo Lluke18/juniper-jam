@@ -16,7 +16,6 @@ const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 @export var acceleration: float = 0
 	
 func _on_timer_timeout() -> void:
-	print("fired 1 ring")
 	spawn_shurikens()
 	
 func spawn_shurikens():

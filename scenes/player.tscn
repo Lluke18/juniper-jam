@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://de0wfefkskf31" path="res://Sprites/MC/idle anim/idle_right.png" id="9_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://cs85g36tlohap" path="res://scenes/combat/shuriken_spawner.tscn" id="10_y4r1p"]
 [ext_resource type="Script" uid="uid://xutvfcxb03py" path="res://Scripts/levelup/options.gd" id="11_d2wvv"]
+[ext_resource type="Script" uid="uid://cpfh0xv0nbsh3" path="res://Scripts/UI/player_canvas.gd" id="11_jej6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
@@ -114,6 +115,7 @@ radius = 2000.0
 horizontal_angle = 10.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861426023]
+script = ExtResource("11_jej6c")
 
 [node name="XP" type="ProgressBar" parent="UI" unique_id=126290240]
 unique_name_in_owner = true
@@ -155,4 +157,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("11_d2wvv")
 
+[node name="Timer" type="Timer" parent="UI" unique_id=145489812]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="timeout" from="UI/Timer" to="UI" method="_on_timer_timeout"]
