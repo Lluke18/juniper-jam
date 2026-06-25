@@ -1,4 +1,5 @@
 extends Node2D
+class_name ShurikenSpawner
 
 const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 
@@ -16,9 +17,12 @@ const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 
 @export var acceleration: float = 0
 
+var is_puking: bool = false
+
 func _on_timer_timeout() -> void:
 	#timer.wait_time = combat_stats.fire_rate / time_scaler.time_scale
-	spawn_shurikens()
+	if !is_puking:
+		spawn_shurikens()
 	
 func spawn_shurikens():
 	var start_point = position
