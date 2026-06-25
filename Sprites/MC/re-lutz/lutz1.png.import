@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqboqr3jh3qew"
-path="res://.godot/imported/left_pose_resize.png-e8d205dad08a38a7f29d33287125a29c.ctex"
+uid="uid://c5sru45tkybxx"
+path="res://.godot/imported/lutz1.png-81a79bd3b5facf943f7ecaa8af5b1f41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/MC/high foot scheme/left_pose_resize.png"
-dest_files=["res://.godot/imported/left_pose_resize.png-e8d205dad08a38a7f29d33287125a29c.ctex"]
+source_file="res://Sprites/MC/re-lutz/lutz1.png"
+dest_files=["res://.godot/imported/lutz1.png-81a79bd3b5facf943f7ecaa8af5b1f41.ctex"]
 
 [params]
 

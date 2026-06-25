@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv3d1tobccra0"
-path="res://.godot/imported/right_pose_resize.png-8422c8f092971a0539d931d3825465bf.ctex"
+uid="uid://bc1rmlbh3o1k0"
+path="res://.godot/imported/right_pose.png-14909dcdc0b4842bf529e647e48177d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/MC/high foot scheme/right_pose_resize.png"
-dest_files=["res://.godot/imported/right_pose_resize.png-8422c8f092971a0539d931d3825465bf.ctex"]
+source_file="res://Sprites/MC/re-low_spin/right_pose.png"
+dest_files=["res://.godot/imported/right_pose.png-14909dcdc0b4842bf529e647e48177d3.ctex"]
 
 [params]
 

@@ -8,7 +8,27 @@
 [ext_resource type="PackedScene" uid="uid://dmv36odapk15g" path="res://scenes/enemies/Sharknado.tscn" id="6_tipki"]
 [ext_resource type="Script" uid="uid://co864wqb3y32l" path="res://Resources/waves/wave_info.gd" id="7_85g3d"]
 [ext_resource type="Resource" uid="uid://dme2alq1w1hwu" path="res://Resources/waves/test_wave.tres" id="8_choun"]
-[ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="9_85g3d"]
+
+[sub_resource type="Resource" id="Resource_xrivr"]
+script = ExtResource("9_85g3d")
+hp = 200
+atk_dmg = 50
+max_speed = 50
+curr_speed = 50
+knockback_resistance = 1.0
+cost = 35
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
+
+[sub_resource type="Resource" id="Resource_13qdw"]
+script = ExtResource("9_85g3d")
+hp = 500
+atk_dmg = 100
+max_speed = 69
+curr_speed = 69
+knockback_resistance = 1.0
+cost = 59
+metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
 vertices = PackedVector2Array(451.4297, 384.92188, 1057.6016, 548.85156, 83.171875, 535.1406, 308, 386.07813, 90.82031, 101.92969, 308, 249.17188, 1040.3672, 96.046875, 445.57813, 246.84375)
@@ -27,27 +47,31 @@ texture = ExtResource("1_sugp2")
 z_index = 1
 position = Vector2(591, 328)
 
-[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "enemies") instance=ExtResource("4_jyhfs")]
+[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "enemies", "cost_arr") instance=ExtResource("4_jyhfs")]
 player = NodePath("../Player")
 scenes = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("5_o6xl0"), ExtResource("6_tipki")])
-enemies = [NodePath("HockJock"), NodePath("PolarBear"), NodePath("Sharknado")]
+enemies = [NodePath(""), NodePath(""), NodePath("")]
+cost_arr = {
+ExtResource("3_sugp2"): NodePath("HockJock"),
+ExtResource("5_o6xl0"): NodePath("PolarBear")
+}
 waves = Array[ExtResource("7_85g3d")]([ExtResource("8_choun"), null, null])
-
-[node name="Sharknado" parent="EnemySpawner" unique_id=409184938 instance=ExtResource("6_tipki")]
-process_mode = 4
-position = Vector2(-948, 136)
-stats = ExtResource("9_85g3d")
-
-[node name="PolarBear" parent="EnemySpawner" unique_id=344848122 instance=ExtResource("5_o6xl0")]
-process_mode = 4
-position = Vector2(-816, -154)
-stats = ExtResource("9_85g3d")
 
 [node name="HockJock" parent="EnemySpawner" unique_id=1652384883 instance=ExtResource("3_sugp2")]
 process_mode = 4
-position = Vector2(-178, -203)
-scale = Vector2(0.13117021, 0.14384301)
-motion_mode = 0
+visible = false
+position = Vector2(-800, -272)
+
+[node name="PolarBear" parent="EnemySpawner" unique_id=344848122 instance=ExtResource("5_o6xl0")]
+process_mode = 4
+visible = false
+stats = SubResource("Resource_xrivr")
+
+[node name="Sharknado" parent="EnemySpawner" unique_id=409184938 instance=ExtResource("6_tipki")]
+process_mode = 4
+visible = false
+position = Vector2(-826, -317)
+stats = SubResource("Resource_13qdw")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
 position = Vector2(19, -4)

@@ -3,59 +3,59 @@
 [ext_resource type="Script" uid="uid://c8fd3u0sl6ttm" path="res://Scripts/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="2_4r5pv"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_60mlk"]
-[ext_resource type="Texture2D" uid="uid://c4u8mhnwwu64k" path="res://Sprites/MC/high foot scheme/front_pose_1.png" id="2_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://dqboqr3jh3qew" path="res://Sprites/MC/high foot scheme/left_pose_resize.png" id="3_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://hyhl2dcxd3fn" path="res://Sprites/MC/high foot scheme/back_pose_resize.png" id="4_d2wvv"]
-[ext_resource type="Texture2D" uid="uid://dv3d1tobccra0" path="res://Sprites/MC/high foot scheme/right_pose_resize.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://c3c6363bg3yon" path="res://Sprites/MC/re-high_foot/front_pose_1.png" id="4_hax0n"]
+[ext_resource type="Texture2D" uid="uid://earhiwjbq30x" path="res://Sprites/MC/re-high_foot/left_pose_resize.png" id="5_t4otl"]
+[ext_resource type="Texture2D" uid="uid://sirims64lgq6" path="res://Sprites/MC/re-high_foot/back_pose_resize.png" id="6_j2b1d"]
 [ext_resource type="Texture2D" uid="uid://djfonklfwomru" path="res://Sprites/MC/idle anim/idle_front.png" id="6_jej6c"]
+[ext_resource type="Texture2D" uid="uid://cv5t1u7jadae0" path="res://Sprites/MC/re-high_foot/right_pose_resize.png" id="7_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://dttrv21ju8j7a" path="res://Sprites/MC/idle anim/idle_left.png" id="7_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://cq6ay81igrcx6" path="res://Sprites/MC/idle anim/idle_back.png" id="8_oprun"]
 [ext_resource type="Texture2D" uid="uid://de0wfefkskf31" path="res://Sprites/MC/idle anim/idle_right.png" id="9_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://cs85g36tlohap" path="res://scenes/combat/shuriken_spawner.tscn" id="10_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://dlfdpy451ww6p" path="res://Sprites/MC/lutz scheme/lutz1.png" id="11_bj30b"]
 [ext_resource type="Script" uid="uid://xutvfcxb03py" path="res://Scripts/levelup/options.gd" id="11_d2wvv"]
 [ext_resource type="Script" uid="uid://cpfh0xv0nbsh3" path="res://Scripts/UI/player_canvas.gd" id="11_jej6c"]
-[ext_resource type="Texture2D" uid="uid://610hqp1aylwx" path="res://Sprites/MC/lutz scheme/lutz2.png" id="12_jc3p3"]
+[ext_resource type="Texture2D" uid="uid://bi1hp2whmmijc" path="res://Sprites/MC/re-lutz/lutz2.png" id="12_2dvfe"]
 [ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="13_fulsm"]
-[ext_resource type="Texture2D" uid="uid://d4bhnx2ys8w0y" path="res://Sprites/MC/lutz scheme/lutz3.png" id="13_hax0n"]
+[ext_resource type="Texture2D" uid="uid://ba6wk11k4irms" path="res://Sprites/MC/re-lutz/lutz3.png" id="13_giy8y"]
 [ext_resource type="Resource" uid="uid://b4f1r11mp6aai" path="res://Resources/combat/upgrade_dmg.tres" id="14_4r5pv"]
-[ext_resource type="Texture2D" uid="uid://kqswme3sd7ee" path="res://Sprites/MC/lutz scheme/lutz4.png" id="14_t4otl"]
+[ext_resource type="Texture2D" uid="uid://ckp66ylbtfcld" path="res://Sprites/MC/re-lutz/lutz4.png" id="14_fdfoy"]
 [ext_resource type="Resource" uid="uid://dtharmkcltyig" path="res://Resources/combat/upgrade_hp.tres" id="15_60mlk"]
-[ext_resource type="Texture2D" uid="uid://bjwsv1kdetjmq" path="res://Sprites/MC/spin scheme/back_pose_2.png" id="15_j2b1d"]
-[ext_resource type="Texture2D" uid="uid://73utuokqn4tf" path="res://Sprites/MC/spin scheme/front_pose_2.png" id="16_cs1tg"]
+[ext_resource type="Texture2D" uid="uid://c5sru45tkybxx" path="res://Sprites/MC/re-lutz/lutz1.png" id="15_hhpqf"]
+[ext_resource type="Texture2D" uid="uid://bn54p6uvh3qso" path="res://Sprites/MC/re-low_spin/front_pose_2.png" id="16_g5jhy"]
 [ext_resource type="Resource" uid="uid://bo4irddnqjwup" path="res://Resources/combat/upgrade_shurikens.tres" id="16_i4ail"]
-[ext_resource type="Texture2D" uid="uid://b7q1s8msqifkq" path="res://Sprites/MC/spin scheme/left_pose_2.png" id="17_2dvfe"]
 [ext_resource type="Resource" uid="uid://dgd0p2pl356w3" path="res://Resources/combat/upgrade_shuriken_speed.tres" id="17_a38lo"]
+[ext_resource type="Texture2D" uid="uid://bimjl1rql1xk4" path="res://Sprites/MC/re-low_spin/left_pose.png" id="17_holxr"]
 [ext_resource type="Resource" uid="uid://dfcl3vnvrxjen" path="res://Resources/combat/upgrade_speed.tres" id="18_4ni07"]
-[ext_resource type="Texture2D" uid="uid://dqj1qt3nqfrob" path="res://Sprites/MC/spin scheme/right_pose_2.png" id="18_giy8y"]
-[ext_resource type="Texture2D" uid="uid://k3box3yi70g4" path="res://Sprites/MC/walking anim/idle_front_walk_1.png" id="19_fdfoy"]
-[ext_resource type="Texture2D" uid="uid://b2130bibg1v34" path="res://Sprites/MC/walking anim/idle_front_walk_2.png" id="20_hhpqf"]
-[ext_resource type="Texture2D" uid="uid://4tehr1e6mexn" path="res://Sprites/MC/walking anim/idle_left_walking_1.png" id="21_g5jhy"]
-[ext_resource type="Texture2D" uid="uid://65lwdmjjmp81" path="res://Sprites/MC/walking anim/idle_left_walk_2.png" id="22_holxr"]
-[ext_resource type="Texture2D" uid="uid://co7ai3tsjlsvn" path="res://Sprites/MC/walking anim/idle_right_walking_1.png" id="23_mx1m4"]
-[ext_resource type="Texture2D" uid="uid://ctr4id3y28huw" path="res://Sprites/MC/walking anim/idle_right_walk_2.png" id="24_4gjji"]
-[ext_resource type="Texture2D" uid="uid://c3t6ktpbalrg4" path="res://Sprites/MC/walking anim/idle_back_2.png" id="25_u2ulf"]
-[ext_resource type="Texture2D" uid="uid://c0f77e3s8lami" path="res://Sprites/MC/walking anim/idle_back_walk_1.png" id="26_6e8lb"]
+[ext_resource type="Texture2D" uid="uid://dgsahfowsqbkt" path="res://Sprites/MC/re-low_spin/back_pose.png" id="18_mx1m4"]
+[ext_resource type="Texture2D" uid="uid://bc1rmlbh3o1k0" path="res://Sprites/MC/re-low_spin/right_pose.png" id="19_4gjji"]
+[ext_resource type="Texture2D" uid="uid://bi3y5hbwc8ce5" path="res://Sprites/MC/correctly scaled walking anims/idle_front.png" id="20_hax0n"]
+[ext_resource type="Texture2D" uid="uid://1c7rx4a8m13e" path="res://Sprites/MC/correctly scaled walking anims/front2.png" id="21_t4otl"]
+[ext_resource type="Texture2D" uid="uid://bqx43dnph3j2a" path="res://Sprites/MC/correctly scaled walking anims/left_walk1.png" id="22_j2b1d"]
+[ext_resource type="Texture2D" uid="uid://c3b7nimwgmcv" path="res://Sprites/MC/correctly scaled walking anims/left_walk2.png" id="23_cs1tg"]
+[ext_resource type="Texture2D" uid="uid://v8c6u5hnmml0" path="res://Sprites/MC/correctly scaled walking anims/right_walk1.png" id="24_2dvfe"]
+[ext_resource type="Texture2D" uid="uid://cgb6lptw3u65f" path="res://Sprites/MC/correctly scaled walking anims/right_walk2.png" id="25_giy8y"]
+[ext_resource type="Texture2D" uid="uid://bbvqc6uom2q10" path="res://Sprites/MC/correctly scaled walking anims/idle_back1.png" id="26_fdfoy"]
+[ext_resource type="Texture2D" uid="uid://bpiymk3qbcm7q" path="res://Sprites/MC/correctly scaled walking anims/back_walk2.png" id="27_hhpqf"]
 [ext_resource type="Script" uid="uid://08ac5a2cpotc" path="res://Scripts/player_camera.gd" id="28_hax0n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_y4r1p")
+"texture": ExtResource("4_hax0n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ur7pv")
+"texture": ExtResource("5_t4otl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_d2wvv")
+"texture": ExtResource("6_j2b1d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_3v2ag")
+"texture": ExtResource("7_cs1tg")
 }],
 "loop": 1,
 "name": &"high_foot",
-"speed": 5.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -76,16 +76,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_bj30b")
+"texture": ExtResource("12_2dvfe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_jc3p3")
+"texture": ExtResource("13_giy8y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_hax0n")
+"texture": ExtResource("14_fdfoy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_t4otl")
+"texture": ExtResource("15_hhpqf")
 }],
 "loop": 1,
 "name": &"lutz",
@@ -93,16 +93,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_j2b1d")
+"texture": ExtResource("16_g5jhy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_cs1tg")
+"texture": ExtResource("17_holxr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_2dvfe")
+"texture": ExtResource("18_mx1m4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_giy8y")
+"texture": ExtResource("19_4gjji")
 }],
 "loop": 1,
 "name": &"spin",
@@ -110,10 +110,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("19_fdfoy")
+"texture": ExtResource("20_hax0n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_hhpqf")
+"texture": ExtResource("21_t4otl")
 }],
 "loop": 1,
 "name": &"walk_down",
@@ -121,10 +121,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_g5jhy")
+"texture": ExtResource("22_j2b1d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_holxr")
+"texture": ExtResource("23_cs1tg")
 }],
 "loop": 1,
 "name": &"walk_left",
@@ -132,10 +132,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_mx1m4")
+"texture": ExtResource("24_2dvfe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_4gjji")
+"texture": ExtResource("25_giy8y")
 }],
 "loop": 1,
 "name": &"walk_right",
@@ -143,10 +143,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("25_u2ulf")
+"texture": ExtResource("26_fdfoy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_6e8lb")
+"texture": ExtResource("27_hhpqf")
 }],
 "loop": 1,
 "name": &"walk_up",
@@ -187,7 +187,9 @@ wave_enemy_position = NodePath("Path2D/PathFollow2D/Marker2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1560810833]
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_13qdw")
-animation = &"walk_up"
+animation = &"high_foot"
+frame = 2
+frame_progress = 0.24791236
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414563548]
 position = Vector2(2.9802322e-08, 0.50000244)

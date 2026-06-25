@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl2mmipffyiov" path="res://UI/ui scripts/game_over.gd" id="1_kjexa"]
 
-[node name="Control" type="Control" unique_id=1521952163 node_paths=PackedStringArray("http_request")]
+[node name="Control" type="Control" unique_id=1521952163 node_paths=PackedStringArray("http_request", "submit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_kjexa")
 leaderboard_path = "res://UI/leaderboard.tscn"
 http_request = NodePath("HTTPRequest")
+submit = NodePath("submit")
 
 [node name="Label" type="Label" parent="." unique_id=947200720]
 layout_mode = 1
@@ -63,10 +64,10 @@ text = "Quit
 
 [node name="to leaderboard" type="Button" parent="." unique_id=1639345933]
 layout_mode = 0
-offset_left = 805.0
-offset_top = 556.0
-offset_right = 944.0
-offset_bottom = 587.0
+offset_left = 1133.0
+offset_top = 673.0
+offset_right = 1272.0
+offset_bottom = 704.0
 text = "See Leaderboard
 "
 
@@ -80,7 +81,15 @@ text = "Submit your score!"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1477575407]
 
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1255478887]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 568.0
+offset_right = 962.5
+offset_bottom = 599.0
+
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="to leaderboard" to="." method="_on_to_leaderboard_pressed"]
 [connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
