@@ -1,8 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-@export var time_scaler: TimeScaler
+@onready var shuriken_spawner: ShurikenSpawner = $ShurikenSpawner
+@onready var puke_timer: Timer = $PukeTimer
+@onready var puke_bar: PukeBar = $UI/PukeBar
+var is_puking: bool = false
 
+@export var time_scaler: TimeScaler
+var in_minigame : bool = false
 @export var stats : CombatStats
 @export var sprite : AnimatedSprite2D
 @export var max_hp : int
@@ -19,11 +24,15 @@ var friction : int =  5
 func _ready() -> void:
 	time_scaler.time_scale = 1.0
 	curr_hp = max_hp
+	puke_bar.puke_bar_filled.connect(_on_puke_bar_filled)
 
 func _physics_process(delta: float) -> void:
-	movement(delta)
+	if !is_puking:
+		movement(delta)
 
 func movement(delta: float):
+	if in_minigame:
+		return
 	var input = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -47,13 +56,11 @@ func movement(delta: float):
 	velocity = lerp(velocity, input * stats.max_speed, lerp_weight) * time_scaler.time_scale
 	move_and_slide()
 
-
 func _on_hitbox_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		var enemy_body := body as Enemy
 		print("Wiz got hit!")
 		take_damage(enemy_body.stats.atk_dmg)
-
 
 func take_damage(dmg_val : int):
 	curr_hp -= dmg_val
@@ -61,3 +68,12 @@ func take_damage(dmg_val : int):
 	if curr_hp <= 0:
 		print("ya died!")
 		get_tree().quit()
+		
+func _on_puke_bar_filled():
+	is_puking = true
+	shuriken_spawner.is_puking = true
+	puke_timer.start()
+	
+func _on_puke_timer_timeout() -> void:
+	is_puking = false
+	shuriken_spawner.is_puking = false

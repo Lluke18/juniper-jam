@@ -36,7 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://cgb6lptw3u65f" path="res://Sprites/MC/correctly scaled walking anims/right_walk2.png" id="25_giy8y"]
 [ext_resource type="Texture2D" uid="uid://bbvqc6uom2q10" path="res://Sprites/MC/correctly scaled walking anims/idle_back1.png" id="26_fdfoy"]
 [ext_resource type="Texture2D" uid="uid://bpiymk3qbcm7q" path="res://Sprites/MC/correctly scaled walking anims/back_walk2.png" id="27_hhpqf"]
-[ext_resource type="Script" uid="uid://08ac5a2cpotc" path="res://Scripts/player_camera.gd" id="28_hax0n"]
+[ext_resource type="Script" uid="uid://cigp45vi54wg" path="res://Scripts/UI/player_camera.gd" id="28_hax0n"]
+[ext_resource type="PackedScene" uid="uid://cusigrw8dfas8" path="res://scenes/UI/PukeBar.tscn" id="31_t4otl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
@@ -218,6 +219,10 @@ shape = SubResource("RectangleShape2D_13qdw")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1439811914]
 libraries/ = SubResource("AnimationLibrary_fulsm")
 
+[node name="PukeTimer" type="Timer" parent="." unique_id=1924847376]
+wait_time = 3.0
+one_shot = true
+
 [node name="ShurikenSpawner" parent="." unique_id=1000780227 instance=ExtResource("10_y4r1p")]
 radius = 2000.0
 horizontal_angle = 10.0
@@ -248,6 +253,13 @@ offset_right = -13.0
 offset_bottom = 1.9989967
 text = "Level 1"
 
+[node name="PukeBar" parent="UI" unique_id=351104288 instance=ExtResource("31_t4otl")]
+offset_top = 48.0
+offset_right = 789.0
+offset_bottom = 197.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="OptionsContainer" type="HBoxContainer" parent="UI" unique_id=1419738735]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -273,4 +285,5 @@ autostart = true
 ignore_time_scale = true
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="timeout" from="PukeTimer" to="." method="_on_puke_timer_timeout"]
 [connection signal="timeout" from="UI/Timer" to="UI" method="_on_timer_timeout"]

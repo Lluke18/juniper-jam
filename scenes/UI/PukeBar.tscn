@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cusigrw8dfas8"]
+
+[ext_resource type="Texture2D" uid="uid://bdaxe2671mey3" path="res://Sprites/UI/PukeBar/puke_bar_empty.png" id="1_hfcex"]
+[ext_resource type="Script" uid="uid://87fpp0ke2tn5" path="res://Scripts/UI/puke_bar.gd" id="1_ovg3i"]
+
+[node name="PukeBar" type="TextureRect" unique_id=351104288]
+offset_right = 1404.0
+offset_bottom = 263.0
+texture = ExtResource("1_hfcex")
+script = ExtResource("1_ovg3i")
