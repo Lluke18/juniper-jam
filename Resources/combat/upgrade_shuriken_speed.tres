@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dgd0p2pl356w3"]
+
+[ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="1_78jgg"]
+
+[resource]
+script = ExtResource("1_78jgg")
+title = "Attack Speed"
+description = "SHING SHING SHING"
+stat = "shuriken_speed"
+value = 1.0
+metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

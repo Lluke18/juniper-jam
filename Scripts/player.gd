@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var stats : CombatStats
 @export var sprite : AnimatedSprite2D
 @export var max_hp : int
 var curr_hp : int 
@@ -19,12 +20,9 @@ var total_XP : int = 0
 var level : int = 1:
 	set(value):
 		level = value
-		%Level.text ="Lv " + str(value)
-		
-		if level >= 3:
-			%XP.max_value = 20
-		elif level >= 7:
-			%XP.max_value = 40
+		%Level.text = "Lv " + str(value)
+		if level > 1:
+			%OptionsContainer.show_option()
 	
 @export var path2D : Path2D
 @export var pathFollow : PathFollow2D

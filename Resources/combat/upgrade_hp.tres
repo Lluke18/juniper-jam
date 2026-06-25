@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dtharmkcltyig"]
+
+[ext_resource type="Script" uid="uid://cgpc4ly5hs6ki" path="res://Scripts/levelup/upgrade.gd" id="1_6cl1i"]
+
+[resource]
+script = ExtResource("1_6cl1i")
+title = "Health Up"
+description = "Mundo goes where he pleases"
+stat = "max_hp"
+value = 5.0
+metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

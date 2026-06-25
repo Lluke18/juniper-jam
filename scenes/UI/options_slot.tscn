@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://doggtdmgn40rd"]
+
+[ext_resource type="Script" uid="uid://muiui5yv71fe" path="res://Scripts/levelup/options_slot.gd" id="1_qwe0q"]
+[ext_resource type="Texture2D" uid="uid://dw5onns3xdi2n" path="res://Placeholders/block.jpg" id="2_h8vo3"]
+
+[node name="OptionsSlot" type="TextureButton" unique_id=1156552935]
+custom_minimum_size = Vector2(200, 300)
+offset_right = 250.0
+offset_bottom = 450.0
+size_flags_horizontal = 3
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("1_qwe0q")
+
+[node name="NameLabel" type="Label" parent="." unique_id=546587859]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 119.0
+offset_right = 145.0
+offset_bottom = 142.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescLabel" type="Label" parent="." unique_id=1033126059]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 232.0
+offset_right = 209.0
+offset_bottom = 257.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=844911024]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 450)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_h8vo3")
+region_rect = Rect2(46, 86.5, 451, 375.5)
