@@ -7,7 +7,7 @@ class_name Player
 var is_puking: bool = false
 
 @export var time_scaler: TimeScaler
-
+var in_minigame : bool = false
 @export var stats : CombatStats
 @export var sprite : AnimatedSprite2D
 @export var max_hp : int
@@ -31,6 +31,8 @@ func _physics_process(delta: float) -> void:
 		movement(delta)
 
 func movement(delta: float):
+	if in_minigame:
+		return
 	var input = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
