@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq1evqwi81vm"]
 
 [ext_resource type="Script" uid="uid://d2j2bsvhkv6q1" path="res://Scripts/enemyscripts/polar_bear.gd" id="1_48jrj"]
+[ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_cajnv"]
 [ext_resource type="Texture2D" uid="uid://djmmkfqr1l80m" path="res://Sprites/Enemies/Bear/bear_2_left.png" id="3_cajnv"]
 [ext_resource type="Texture2D" uid="uid://xxh11l1xdrr7" path="res://Sprites/Enemies/Bear/bear_left.png" id="4_2fnbs"]
 [ext_resource type="Texture2D" uid="uid://cmh86n71bx27e" path="res://Sprites/Enemies/Bear/bear_2.png" id="5_1ank7"]
@@ -34,9 +35,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
 radius = 287.56793
 
-[node name="PolarBear" type="CharacterBody2D" unique_id=344848122]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cajnv"]
+radius = 181.05704
+
+[node name="PolarBear" type="CharacterBody2D" unique_id=344848122 groups=["enemies"]]
 scale = Vector2(0.16, 0.16)
 script = ExtResource("1_48jrj")
+time_scaler = ExtResource("2_cajnv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065400979]
 sprite_frames = SubResource("SpriteFrames_ifpyu")
@@ -44,3 +49,12 @@ animation = &"walk_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531058405]
 shape = SubResource("CircleShape2D_ifpyu")
+
+[node name="HitboxArea" type="Area2D" parent="." unique_id=1870063945]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=208044454]
+position = Vector2(-1.9073486e-06, 11.111111)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_cajnv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1397635098]

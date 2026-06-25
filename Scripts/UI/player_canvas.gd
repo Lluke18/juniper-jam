@@ -4,6 +4,7 @@ extends CanvasLayer
 
 @onready var SPIN_MINIGAME = preload("res://scenes/UI/SpinMinigame.tscn")
 @onready var timer: Timer = $Timer
+@onready var puke_bar: PukeBar = $PukeBar
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var player_camera: PlayerCamera = $"../PlayerCamera"
@@ -42,13 +43,20 @@ func _on_timer_timeout() -> void:
 	var new_minigame = SPIN_MINIGAME.instantiate()
 	add_child(new_minigame)
 	new_minigame.minigame_over.connect(_on_minigame_over)
+	new_minigame.minigame_won.connect(_on_minigame_won)
+	new_minigame.minigame_lost.connect(_on_minigame_lost)
 	
 	timer.stop()
 
-func _on_minigame_over(scored_points: float):
+func _on_minigame_over():
 	player_camera.zoom_out()
 	time_scaler.time_scale = 1
 	animated_sprite_2d.speed_scale = time_scaler.time_scale
+	timer.start()
+	
+func _on_minigame_won(scored_points: float):
 	gain_XP(scored_points)
 	print("minigame over with score " + str(scored_points))
-	timer.start()
+	
+func _on_minigame_lost():
+	puke_bar.add_puke_point()

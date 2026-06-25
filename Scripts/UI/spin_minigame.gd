@@ -18,7 +18,9 @@ var total_rotation := 0.0
 var previous_angle := 0.0
 
 #rotation to scored_points conversion method not decided yet
-signal minigame_over(scored_points: float)
+signal minigame_over
+signal minigame_won(scored_points: float)
+signal minigame_lost
 
 func _ready():
 	generate_random()
@@ -63,14 +65,14 @@ func _process(delta):
 
 	if elapsed >= duration:
 		if total_rotation >= total_required_rotation:
-			spinner_complete()
+			spinner_won()
 		else:
 			spinner_failed()
-		minigame_over.emit(total_rotation)
+		minigame_over.emit()
 		queue_free()
 
-func spinner_complete():
-	print("Success!")
+func spinner_won():
+	minigame_won.emit(total_rotation)
 
 func spinner_failed():
-	print("Failed!")
+	minigame_lost.emit()
