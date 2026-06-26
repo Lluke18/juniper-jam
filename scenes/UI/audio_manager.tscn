@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://c0s8rebffvodd"]
 
 [ext_resource type="Script" uid="uid://26mrwcgrw7p1" path="res://Autoloads/AudioManager.gd" id="1_2kfui"]
-[ext_resource type="AudioStream" uid="uid://brfmcabh46cdj" path="res://Audio/CriticalTheme.wav" id="1_tyxn8"]
+[ext_resource type="AudioStream" uid="uid://cbd8kj0gbomjt" path="res://Audio/CriticalTheme.wav" id="2_tjjdb"]
+[ext_resource type="AudioStream" uid="uid://b0m534p6sgx4g" path="res://Audio/HaroldParanormalInstigatorTheme.wav" id="3_tjjdb"]
 
 [node name="audio_manager" type="Node" unique_id=379687744]
 script = ExtResource("1_2kfui")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=269622166]
 process_mode = 3
-stream = ExtResource("1_tyxn8")
+stream = ExtResource("2_tjjdb")
 volume_db = 0.035
-autoplay = true
 bus = &"Music"
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=285293079]
+stream = ExtResource("3_tjjdb")
+autoplay = true

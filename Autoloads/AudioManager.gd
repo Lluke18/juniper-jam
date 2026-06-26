@@ -8,11 +8,18 @@ var master_volume : float = 1.0
 var music_volume : float = 1.0
 var sfx_volume : float = 1.0
 var music_player: AudioStreamPlayer
+var music_player_menu: AudioStreamPlayer
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player)
+	
+	music_player_menu = AudioStreamPlayer.new()
+	music_player_menu.bus = "Music"
+	music_player_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music_player_menu)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_master_bus = AudioServer.get_bus_index("Master")

@@ -8,8 +8,8 @@ extends CanvasLayer
 func _ready() -> void:
 	options_panel.visible = false
 	options_panel.visibility_changed.connect(_on_options_visibility_changed)
-	if not AudioManager.music_player.playing:
-		var stream = preload("res://Audio/CriticalTheme.wav")
+	if not AudioManager.music_player_menu.playing:
+		var stream = preload("res://Audio/HaroldParanormalInstigatorTheme.wav") 
 		AudioManager.play_music(stream)
 
 func _on_options_visibility_changed() -> void:
@@ -18,6 +18,9 @@ func _on_options_visibility_changed() -> void:
 	quit.disabled = is_visible
 
 func _on_start_pressed() -> void:
+	AudioManager.stop_music()
+	var game_stream = preload("res://Audio/CriticalTheme.wav")
+	AudioManager.play_music(game_stream)
 	get_tree().change_scene_to_file(start_scene_path)
 
 func _on_options_pressed() -> void:
