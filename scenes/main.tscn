@@ -25,17 +25,6 @@ cost = 1
 score_points = 200
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
-[sub_resource type="Resource" id="Resource_85g3d"]
-resource_local_to_scene = true
-script = ExtResource("9_85g3d")
-hp = 100
-atk_dmg = 20
-max_speed = 80
-curr_speed = 80
-knockback_resistance = 1.0
-cost = 100
-metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
-
 [sub_resource type="Resource" id="Resource_xrivr"]
 script = ExtResource("9_85g3d")
 hp = 200
@@ -117,13 +106,15 @@ navigation_polygon = SubResource("NavigationPolygon_sugp2")
 [node name="Control" parent="." unique_id=1521952163 node_paths=PackedStringArray("leaderboard") instance=ExtResource("11_ya4ey")]
 process_mode = 2
 visible = false
+z_index = 1
 leaderboard = NodePath("../leaderboard")
 
 [node name="leaderboard" parent="." unique_id=1525802796 instance=ExtResource("12_eb6dy")]
 process_mode = 2
 visible = false
+z_index = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=833862260]
 
 [connection signal="game_lost" from="Player" to="." method="_on_player_game_lost"]
-[connection signal="wave_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_spawned"]
+[connection signal="send_points" from="EnemySpawner" to="." method="_on_enemy_spawner_send_points"]

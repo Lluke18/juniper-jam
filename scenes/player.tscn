@@ -262,7 +262,7 @@ scale = Vector2(0.43999892, 0.32000065)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Timer" type="Timer" parent="HurttboxArea" unique_id=742075292]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1439811914]
@@ -270,10 +270,6 @@ libraries/ = SubResource("AnimationLibrary_fulsm")
 
 [node name="PukeTimer" type="Timer" parent="." unique_id=1924847376]
 wait_time = 3.0
-one_shot = true
-
-[node name="InvincibilityTimer" type="Timer" parent="." unique_id=1733474373]
-wait_time = 2.0
 one_shot = true
 
 [node name="ShurikenSpawner" parent="." unique_id=1000780227 instance=ExtResource("10_y4r1p")]
@@ -288,7 +284,6 @@ offset_right = 66.0
 offset_bottom = -95.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1861426023]
-visible = false
 script = ExtResource("11_jej6c")
 time_scaler = ExtResource("2_60mlk")
 
@@ -341,7 +336,7 @@ script = ExtResource("11_d2wvv")
 all_upgrades = Array[ExtResource("13_fulsm")]([ExtResource("14_4r5pv"), ExtResource("15_60mlk"), ExtResource("16_i4ail"), ExtResource("17_a38lo"), ExtResource("18_4ni07")])
 
 [node name="MinigameTimer" type="Timer" parent="UI" unique_id=145489812]
-wait_time = 5.0
+wait_time = 50.0
 autostart = true
 ignore_time_scale = true
 
@@ -349,5 +344,4 @@ ignore_time_scale = true
 [connection signal="body_entered" from="HurttboxArea" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="timeout" from="HurttboxArea/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PukeTimer" to="." method="_on_puke_timer_timeout"]
-[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="UI/MinigameTimer" to="UI" method="_on_timer_timeout"]

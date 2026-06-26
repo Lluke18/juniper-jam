@@ -2,8 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var invincibility_timer: Timer = $InvincibilityTimer
-@onready var hitbox_area: Area2D = $HitboxArea
 
 @onready var health_bar: HealthBar = $HealthBar
 @onready var minigame_timer: Timer = $UI/MinigameTimer
@@ -75,8 +73,6 @@ func take_damage(dmg_val : int):
 	stats.current_hp -= dmg_val
 	health_bar.value = stats.current_hp
 	
-	invincibility_timer.start()
-	hitbox_area.set_collision_mask_value(1, false)
 	animation_player.play("invincibility")
 	
 	print("wiz got damaged with: ", dmg_val)
@@ -95,9 +91,6 @@ func _on_puke_timer_timeout() -> void:
 	shuriken_spawner.is_puking = false
 	minigame_timer.start()
 	
-func _on_invincibility_timer_timeout() -> void:
-	hitbox_area.set_collision_mask_value(1, true)
-
 """
 func _on_game_over():
 	sprite.play("puke") 

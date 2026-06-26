@@ -12,13 +12,13 @@ var curr_wave : int = 0
 var curr_wave_val : int
 @export var spawn_interval : float = 5.0
 
-signal wave_spawned
+signal send_points(points : int)
+
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	curr_wave += 1
 	generate_wave()
-
 
 func generate_wave():
 	print("SPAWNED A WAVE")
@@ -30,11 +30,9 @@ func generate_wave():
 	wave_timer.wait_time = waves[0].wave_duration
 	wave_timer.start()
 	print("DURATION UNTIL NEXT WAVE: ", wave_timer.wait_time)
-	
-	
+
 func spawn_wave(val : int):
 	var generated_enemies : Array[PackedScene] = []
-	
 	
 	while(val > 0):
 		var available_enemies : Array[PackedScene] = []
@@ -50,10 +48,10 @@ func spawn_wave(val : int):
 		generated_enemies.append(rand_enemy_scene)
 		val -= rand_cost
 	print("nr of enemies in the wave are: ", generated_enemies.size())
-	
+
 	for enemy in generated_enemies:
 		wave_spawn(enemy)
-	wave_spawned.emit()
+	#wave_spawned.emit()
 	#await get_tree().create_timer(waves[0].wave_duration).timeout
 
 func wave_spawn(enemy_scene : PackedScene):
@@ -62,11 +60,26 @@ func wave_spawn(enemy_scene : PackedScene):
 	var new_enemy = enemy_scene.instantiate()
 	new_enemy.name = "Enemy_%d" % enemy_counter
 	enemy_counter += 1
-	add_child(new_enemy)
+	
+	call_deferred("add_child", new_enemy)
+	#add_child(new_enemy)
+	new_enemy.send_points.connect(_on_enemy_send_points)
+	
 	new_enemy.global_position = player.wave_enemy_position.global_position
-
-
 
 func _on_wave_timer_timeout() -> void:
 	print("SPAWNIN'!")
 	generate_wave()
+
+#When enemy dies
+func _on_enemy_send_points(points: int):
+	send_points.emit(points)
+	check_if_wave_cleared()
+
+func check_if_wave_cleared():
+	# NU stiu de ce trebuie sa fie 6, in ierarhie imi arata pe remote 5
+	# Lasam asa totusi ca merge
+	if get_child_count() < 6:
+		print("Wave Complete!")
+		wave_timer.stop()
+		wave_timer.timeout.emit()
