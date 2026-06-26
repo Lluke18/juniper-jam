@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://xc3lvpp0yjuy" path="res://Scripts/enemyscripts/sharknado.gd" id="1_8kei1"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_8mauw"]
+[ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="3_0yeeg"]
 [ext_resource type="Texture2D" uid="uid://e1lbyvwbf14p" path="res://Sprites/Enemies/Sharknado/sharknado1.png" id="3_8mauw"]
+[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="3_b8cjm"]
 [ext_resource type="Texture2D" uid="uid://s43ynsuk2k1" path="res://Sprites/Enemies/Sharknado/sharknado4.png" id="4_b8cjm"]
 [ext_resource type="Texture2D" uid="uid://d3s0vqok6fwux" path="res://Sprites/Enemies/Sharknado/sharknado2.png" id="5_0yeeg"]
 [ext_resource type="Texture2D" uid="uid://b05mslxcgu36m" path="res://Sprites/Enemies/Sharknado/sharknado3.png" id="6_cmm8x"]
+[ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_cmm8x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{
@@ -33,16 +36,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifpyu"]
-radius = 237.5
-height = 987.5
+radius = 187.5
+height = 787.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8mauw"]
 radius = 181.05704
 
-[node name="Sharknado" type="CharacterBody2D" unique_id=409184938]
+[node name="Sharknado" type="CharacterBody2D" unique_id=409184938 groups=["enemies"]]
 scale = Vector2(0.16, 0.16)
 script = ExtResource("1_8kei1")
 time_scaler = ExtResource("2_8mauw")
+stats = ExtResource("3_0yeeg")
+player_combat_stats = ExtResource("3_b8cjm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086406569]
 sprite_frames = SubResource("SpriteFrames_ifpyu")
@@ -52,7 +57,7 @@ frame_progress = 0.5387959
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870780796]
 shape = SubResource("CapsuleShape2D_ifpyu")
 
-[node name="HitboxArea" type="Area2D" parent="." unique_id=850903598]
+[node name="HitboxArea" type="Area2D" parent="." unique_id=850903598 groups=["enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=271664642]
 position = Vector2(-1.9073486e-06, 11.111111)
@@ -60,3 +65,11 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CircleShape2D_8mauw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=900987454]
+
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_cmm8x")]
+offset_left = -225.0
+offset_top = 456.25
+offset_right = 249.99997
+offset_bottom = 511.80554
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

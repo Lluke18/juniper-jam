@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var minigame_timer: Timer = $UI/MinigameTimer
 @onready var shuriken_spawner: ShurikenSpawner = $ShurikenSpawner
 @onready var puke_timer: Timer = $PukeTimer
 @onready var puke_bar: PukeBar = $UI/PukeBar
@@ -25,10 +26,12 @@ func _ready() -> void:
 	time_scaler.time_scale = 1.0
 	curr_hp = max_hp
 	puke_bar.puke_bar_filled.connect(_on_puke_bar_filled)
-	puke_bar.game_over.connect(_on_game_over)
+	#puke_bar.game_over.connect(_on_game_over)
 
 func _physics_process(delta: float) -> void:
-	if !is_puking:
+	if is_puking:
+		sprite.play("puke")
+	else:
 		movement(delta)
 
 func movement(delta: float):
@@ -74,13 +77,18 @@ func _on_puke_bar_filled():
 	is_puking = true
 	shuriken_spawner.is_puking = true
 	puke_timer.start()
+	minigame_timer.stop()
 	
 func _on_puke_timer_timeout() -> void:
 	is_puking = false
 	shuriken_spawner.is_puking = false
-	
-	
+	minigame_timer.start()
+
+"""
 func _on_game_over():
 	sprite.play("puke") 
 	await sprite.animation_finished
-	get_tree().change_scene_to_file("res://scenes/UI/GameOver.tscn")
+	
+	# nu exista scena asta
+	#get_tree().change_scene_to_file("res://scenes/UI/GameOver.tscn")
+"""

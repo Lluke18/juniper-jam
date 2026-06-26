@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://dy8r3unqcd27y"]
 
 [ext_resource type="Script" uid="uid://wepohrk2a7ft" path="res://Scripts/UI/spin_minigame.gd" id="1_7skiw"]
-[ext_resource type="Texture2D" uid="uid://d2hpkk8l7vwrd" path="res://Placeholders/Arrow.png" id="2_5sxo0"]
+[ext_resource type="Texture2D" uid="uid://cneudmmo5cxiq" path="res://Sprites/UI/Minigame/spin.png" id="2_5sxo0"]
+[ext_resource type="Texture2D" uid="uid://2mw5pu5ffq3i" path="res://Sprites/UI/Minigame/points_empty.png" id="3_h3tw2"]
+[ext_resource type="Texture2D" uid="uid://5w3karkae51a" path="res://Sprites/UI/Minigame/normal_points.png" id="4_5i1gy"]
+[ext_resource type="Texture2D" uid="uid://dw2otxdpr41or" path="res://Sprites/UI/Minigame/bonus_points.png" id="5_5i1gy"]
+[ext_resource type="Texture2D" uid="uid://ba246h1vdr6md" path="res://Sprites/UI/Minigame/clock.png" id="6_eqavl"]
+[ext_resource type="Texture2D" uid="uid://c8sq7pfmxm73u" path="res://Sprites/UI/Minigame/clock_time.png" id="7_njt06"]
 
 [node name="SpinMinigame" type="Control" unique_id=1809912839]
 layout_mode = 3
@@ -19,13 +24,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -321.0
-offset_right = 180.0
-offset_bottom = 39.0
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(180, 180)
+pivot_offset = Vector2(320, 320)
 texture = ExtResource("2_5sxo0")
 expand_mode = 1
 stretch_mode = 5
@@ -58,23 +63,25 @@ offset_bottom = -355.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RequiredScoreBar" type="ProgressBar" parent="." unique_id=997893713]
+[node name="RequiredScoreBar" type="TextureProgressBar" parent="." unique_id=1477352845]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.25
-offset_top = 105.5
-offset_right = 137.25
-offset_bottom = 132.5
+offset_left = -534.0
+offset_top = 272.0
+offset_right = 534.0
+offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
 allow_greater = true
-show_percentage = false
+texture_over = ExtResource("3_h3tw2")
+texture_progress = ExtResource("4_5i1gy")
+texture_progress_offset = Vector2(182, 62)
 
-[node name="BonusScoreBar" type="ProgressBar" parent="." unique_id=1300269773]
+[node name="BonusScoreBar" type="TextureProgressBar" parent="." unique_id=2142195558]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -82,17 +89,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 137.0
-offset_top = 105.5
-offset_right = 970.0
-offset_bottom = 132.5
+offset_left = 508.0
+offset_top = 344.00006
+offset_right = 2071.0
+offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 1000.0
-show_percentage = false
+scale = Vector2(0.9, 0.9)
+max_value = 500.0
+texture_progress = ExtResource("5_5i1gy")
 
-[node name="TimerBar" type="TextureProgressBar" parent="." unique_id=1803903610]
+[node name="TimerBar" type="TextureProgressBar" parent="." unique_id=1627580402]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-fill_mode = 4
+offset_left = 1484.0
+offset_top = 307.0
+offset_right = 2192.0
+offset_bottom = 1117.0
+scale = Vector2(0.5, 0.5)
+max_value = 5.0
+step = 0.1
+value = 5.0
+fill_mode = 5
+texture_over = ExtResource("6_eqavl")
+texture_progress = ExtResource("7_njt06")
+texture_progress_offset = Vector2(30, 110)

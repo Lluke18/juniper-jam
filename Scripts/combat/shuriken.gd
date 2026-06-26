@@ -1,4 +1,5 @@
 extends Node2D
+class_name Shuriken
 
 @export var time_scaler: TimeScaler
 
@@ -14,12 +15,10 @@ var horizontal_angle_spacing: float = 0
 var wiggle_speed: float = 0
 var horizontal_wiggle_size: float = 0
 
-func _ready() -> void:
-	pass # Replace with function body.
+@export var rotation_speed: float = 4.0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	rotate(rotation_speed * delta * time_scaler.time_scale)
 	
 	var horizontal_wiggle_modifier = horizontal_wiggle_size * sin(wiggle_speed * Time.get_ticks_msec())
 
@@ -34,3 +33,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 	move_speed += acceleration;
+
+func _on_hitbox_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemies"):
+		queue_free()

@@ -1,10 +1,12 @@
 extends CanvasLayer
 @export var time_scaler: TimeScaler
 @onready var SPIN_MINIGAME = preload("res://scenes/UI/SpinMinigame.tscn")
-@onready var timer: Timer = $Timer
+@onready var minigame_timer: Timer = $MinigameTimer
 @onready var puke_bar: PukeBar = $PukeBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var player_camera: PlayerCamera = $"../PlayerCamera"
+@onready var shuriken_spawner: ShurikenSpawner = $"../ShurikenSpawner"
+
 var XP : int = 0:
 	set(value):
 		XP = value
@@ -47,16 +49,19 @@ func _on_timer_timeout() -> void:
 	new_minigame.minigame_won.connect(_on_minigame_won)
 	new_minigame.minigame_lost.connect(_on_minigame_lost)
 	
-	timer.stop()
+	shuriken_spawner.is_in_minigame = true
+	
+	minigame_timer.stop()
 	
 func _on_minigame_over():
+	shuriken_spawner.is_in_minigame = false
 	var player = get_parent()
 	player.in_minigame = false
 	animated_sprite_2d.play("idle")
 	player_camera.zoom_out()
 	time_scaler.time_scale = 1
 	animated_sprite_2d.speed_scale = 2.5
-	timer.start()
+	minigame_timer.start()
 	
 func _on_minigame_won(scored_points: float):
 	gain_XP(scored_points)

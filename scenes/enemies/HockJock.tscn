@@ -4,12 +4,14 @@
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_fvqej"]
 [ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="2_ixy7k"]
 [ext_resource type="Texture2D" uid="uid://cdy521lq1884m" path="res://Sprites/Enemies/HockJock/hockey_1_left.png" id="3_3edk1"]
+[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="4_bdawo"]
 [ext_resource type="Texture2D" uid="uid://dpxjouf4wbhrp" path="res://Sprites/Enemies/HockJock/hockey_2_left.png" id="4_fvqej"]
 [ext_resource type="Texture2D" uid="uid://mpf45e0xrmah" path="res://Sprites/Enemies/HockJock/hockey_1.png" id="5_bdawo"]
 [ext_resource type="Texture2D" uid="uid://rgh73xryjhsm" path="res://Sprites/Enemies/HockJock/hockey_2.png" id="6_vlx8m"]
+[ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_vlx8m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8mauw"]
-radius = 181.05704
+radius = 333.5184
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{
@@ -45,8 +47,9 @@ motion_mode = 1
 script = ExtResource("1_lx2wv")
 time_scaler = ExtResource("2_fvqej")
 stats = ExtResource("2_ixy7k")
+player_combat_stats = ExtResource("4_bdawo")
 
-[node name="HitboxArea" type="Area2D" parent="." unique_id=1630271514]
+[node name="HitboxArea" type="Area2D" parent="." unique_id=1630271514 groups=["enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=1626332248]
 position = Vector2(-1.9073486e-06, 11.111111)
@@ -61,3 +64,11 @@ animation = &"walk_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=283707622]
 shape = SubResource("CircleShape2D_ifpyu")
+
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_vlx8m")]
+offset_left = -422.2222
+offset_top = 400.0
+offset_right = 411.11118
+offset_bottom = 455.55554
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

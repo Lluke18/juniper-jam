@@ -292,11 +292,11 @@ theme_override_constants/separation = 100
 script = ExtResource("11_d2wvv")
 all_upgrades = Array[ExtResource("13_fulsm")]([ExtResource("14_4r5pv"), ExtResource("15_60mlk"), ExtResource("16_i4ail"), ExtResource("17_a38lo"), ExtResource("18_4ni07")])
 
-[node name="Timer" type="Timer" parent="UI" unique_id=145489812]
+[node name="MinigameTimer" type="Timer" parent="UI" unique_id=145489812]
 wait_time = 5.0
 autostart = true
 ignore_time_scale = true
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="timeout" from="PukeTimer" to="." method="_on_puke_timer_timeout"]
-[connection signal="timeout" from="UI/Timer" to="UI" method="_on_timer_timeout"]
+[connection signal="timeout" from="UI/MinigameTimer" to="UI" method="_on_timer_timeout"]

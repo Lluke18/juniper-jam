@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d2j2bsvhkv6q1" path="res://Scripts/enemyscripts/polar_bear.gd" id="1_48jrj"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_cajnv"]
+[ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="3_1ank7"]
+[ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="3_2fnbs"]
 [ext_resource type="Texture2D" uid="uid://djmmkfqr1l80m" path="res://Sprites/Enemies/Bear/bear_2_left.png" id="3_cajnv"]
 [ext_resource type="Texture2D" uid="uid://xxh11l1xdrr7" path="res://Sprites/Enemies/Bear/bear_left.png" id="4_2fnbs"]
 [ext_resource type="Texture2D" uid="uid://cmh86n71bx27e" path="res://Sprites/Enemies/Bear/bear_2.png" id="5_1ank7"]
 [ext_resource type="Texture2D" uid="uid://btptpo6yejxof" path="res://Sprites/Enemies/Bear/bear_.png" id="6_5fobk"]
+[ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_5fobk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{
@@ -42,6 +45,8 @@ radius = 181.05704
 scale = Vector2(0.16, 0.16)
 script = ExtResource("1_48jrj")
 time_scaler = ExtResource("2_cajnv")
+stats = ExtResource("3_1ank7")
+player_combat_stats = ExtResource("3_2fnbs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065400979]
 sprite_frames = SubResource("SpriteFrames_ifpyu")
@@ -50,7 +55,7 @@ animation = &"walk_left"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531058405]
 shape = SubResource("CircleShape2D_ifpyu")
 
-[node name="HitboxArea" type="Area2D" parent="." unique_id=1870063945]
+[node name="HitboxArea" type="Area2D" parent="." unique_id=1870063945 groups=["enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=208044454]
 position = Vector2(-1.9073486e-06, 11.111111)
@@ -58,3 +63,11 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CircleShape2D_cajnv")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1397635098]
+
+[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_5fobk")]
+offset_left = -422.2222
+offset_top = 400.0
+offset_right = 411.11118
+offset_bottom = 455.55554
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

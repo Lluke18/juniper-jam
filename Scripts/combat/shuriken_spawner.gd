@@ -18,10 +18,11 @@ const SHURIKEN = preload("res://scenes/combat/shuriken.tscn")
 @export var acceleration: float = 0
 
 var is_puking: bool = false
+var is_in_minigame: bool = false
 
 func _on_timer_timeout() -> void:
 	#timer.wait_time = combat_stats.fire_rate / time_scaler.time_scale
-	if !is_puking:
+	if !is_puking and !is_in_minigame:
 		spawn_shurikens()
 	
 func spawn_shurikens():

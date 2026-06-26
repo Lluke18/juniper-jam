@@ -23,6 +23,7 @@ AudioManager="*uid://26mrwcgrw7p1"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -30,6 +31,7 @@ window/stretch/aspect="expand"
 
 player=""
 enemies=""
+shuriken=""
 
 [input]
 

@@ -4,11 +4,23 @@
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_kp4el"]
 [ext_resource type="Texture2D" uid="uid://cfbgj3ai28c7r" path="res://Sprites/MC/shuriken.png" id="3_kp4el"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kp4el"]
+radius = 8.000772
+
 [node name="Shuriken" type="Node2D" unique_id=1376009305]
 script = ExtResource("1_1gmps")
 time_scaler = ExtResource("2_kp4el")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168328905]
-position = Vector2(-4.7683716e-07, -1.0000005)
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
 scale = Vector2(0.01917668, 0.018807977)
 texture = ExtResource("3_kp4el")
+
+[node name="HitboxArea" type="Area2D" parent="." unique_id=1544422505 groups=["shuriken"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea" unique_id=623501486]
+position = Vector2(-1.9073486e-06, 0.11111069)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_kp4el")
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
