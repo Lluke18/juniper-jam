@@ -17,17 +17,17 @@ atk_dmg = 50
 max_speed = 50
 curr_speed = 50
 knockback_resistance = 1.0
-cost = 35
+cost = 30
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="Resource" id="Resource_13qdw"]
 script = ExtResource("9_85g3d")
-hp = 500
+hp = 700
 atk_dmg = 100
 max_speed = 69
 curr_speed = 69
 knockback_resistance = 1.0
-cost = 59
+cost = 5
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sugp2"]
@@ -48,13 +48,13 @@ texture = ExtResource("1_sugp2")
 z_index = 1
 position = Vector2(591, 328)
 
-[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "enemies", "cost_arr") instance=ExtResource("4_jyhfs")]
+[node name="EnemySpawner" parent="." unique_id=1851903758 node_paths=PackedStringArray("player", "cost_arr") instance=ExtResource("4_jyhfs")]
 player = NodePath("../Player")
 scenes = Array[PackedScene]([ExtResource("3_sugp2"), ExtResource("5_o6xl0"), ExtResource("6_tipki")])
-enemies = [null, null, null]
 cost_arr = {
 ExtResource("3_sugp2"): NodePath("HockJock"),
-ExtResource("5_o6xl0"): NodePath("PolarBear")
+ExtResource("5_o6xl0"): NodePath("PolarBear"),
+ExtResource("6_tipki"): NodePath("Sharknado")
 }
 waves = Array[ExtResource("7_85g3d")]([ExtResource("8_choun"), null, null])
 

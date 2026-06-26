@@ -1,8 +1,8 @@
 extends Resource
 class_name CombatStats
 
-@export var max_hp : float = 10
-@export var current_hp : float = 10
+@export var max_hp : int 
+@export var current_hp : int 
 
 const MAX_NUMBER_OF_SHURIKENS : int = 8
 @export var current_number_of_shurikens : int = 4

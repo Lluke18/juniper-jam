@@ -3,10 +3,10 @@ extends Enemy
 class_name SharkNado
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-#initializing variables
+
+
 func _ready() -> void:
 	super()
-	health_bar.max_hp = stats.hp
 	stats.curr_speed = stats.max_speed
 
 func _physics_process(delta: float) -> void:
@@ -18,13 +18,13 @@ func _physics_process(delta: float) -> void:
 func update_animation() -> void:
 	if not player:
 		return
-
-	if player.global_position.x < global_position.x:
-		if animated_sprite.animation != "walk_left":
-			animated_sprite.play("walk_left")
-	else:
-		if animated_sprite.animation != "walk_right":
-			animated_sprite.play("walk_right")
+	animated_sprite.play("spin")
+	#if player.global_position.x < global_position.x:
+		#if animated_sprite.animation != "walk_left":
+			#animated_sprite.play("walk_left")
+	#else:
+		#if animated_sprite.animation != "walk_right":
+			#animated_sprite.play("walk_right")
 
 func _on_hitbox_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shuriken"):

@@ -3,35 +3,37 @@
 [ext_resource type="Script" uid="uid://xc3lvpp0yjuy" path="res://Scripts/enemyscripts/sharknado.gd" id="1_8kei1"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_8mauw"]
 [ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="3_0yeeg"]
-[ext_resource type="Texture2D" uid="uid://e1lbyvwbf14p" path="res://Sprites/Enemies/Sharknado/sharknado1.png" id="3_8mauw"]
 [ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="3_b8cjm"]
-[ext_resource type="Texture2D" uid="uid://s43ynsuk2k1" path="res://Sprites/Enemies/Sharknado/sharknado4.png" id="4_b8cjm"]
-[ext_resource type="Texture2D" uid="uid://d3s0vqok6fwux" path="res://Sprites/Enemies/Sharknado/sharknado2.png" id="5_0yeeg"]
-[ext_resource type="Texture2D" uid="uid://b05mslxcgu36m" path="res://Sprites/Enemies/Sharknado/sharknado3.png" id="6_cmm8x"]
+[ext_resource type="Shader" uid="uid://cx0fddkbj7hwc" path="res://Shaders/hit.gdshader" id="5_btnri"]
+[ext_resource type="Texture2D" uid="uid://dso384q71piv" path="res://Sprites/Enemies/re-sharknado/sharknado1.png" id="6_btnri"]
+[ext_resource type="Texture2D" uid="uid://cw5sjn2ggf15t" path="res://Sprites/Enemies/re-sharknado/sharknado2.png" id="7_3j6o6"]
+[ext_resource type="Texture2D" uid="uid://b17m2jus3y3xg" path="res://Sprites/Enemies/re-sharknado/sharknado3.png" id="8_ofb7v"]
+[ext_resource type="Texture2D" uid="uid://dof1enmwn75qc" path="res://Sprites/Enemies/re-sharknado/sharknado4.png" id="9_bxsbi"]
 [ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="9_cmm8x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gwn4"]
+resource_local_to_scene = true
+shader = ExtResource("5_btnri")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8mauw")
+"texture": ExtResource("6_btnri")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_b8cjm")
+"texture": ExtResource("7_3j6o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ofb7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bxsbi")
 }],
 "loop": 1,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_0yeeg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_cmm8x")
-}],
-"loop": 1,
-"name": &"walk_right",
+"name": &"spin",
 "speed": 5.0
 }]
 
@@ -42,19 +44,61 @@ height = 787.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_8mauw"]
 radius = 181.05704
 
-[node name="Sharknado" type="CharacterBody2D" unique_id=409184938 groups=["enemies"]]
-scale = Vector2(0.16, 0.16)
+[sub_resource type="Animation" id="Animation_atrgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3tegm"]
+resource_name = "hit"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3j6o6"]
+_data = {
+&"RESET": SubResource("Animation_atrgm"),
+&"hit": SubResource("Animation_3tegm")
+}
+
+[node name="Sharknado" type="CharacterBody2D" unique_id=409184938 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8kei1")
 time_scaler = ExtResource("2_8mauw")
 stats = ExtResource("3_0yeeg")
 player_combat_stats = ExtResource("3_b8cjm")
+anim_player = NodePath("hitFlashAnim")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086406569]
+material = SubResource("ShaderMaterial_7gwn4")
 sprite_frames = SubResource("SpriteFrames_ifpyu")
-animation = &"walk_right"
-frame_progress = 0.5387959
+animation = &"spin"
+frame = 1
+frame_progress = 0.34027517
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870780796]
+visible = false
 shape = SubResource("CapsuleShape2D_ifpyu")
 
 [node name="HitboxArea" type="Area2D" parent="." unique_id=850903598 groups=["enemies"]]
@@ -66,10 +110,14 @@ shape = SubResource("CircleShape2D_8mauw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=900987454]
 
-[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_cmm8x")]
+[node name="HealthBar" parent="." unique_id=848823862 node_paths=PackedStringArray("enemy") instance=ExtResource("9_cmm8x")]
 offset_left = -225.0
 offset_top = 456.25
 offset_right = 249.99997
 offset_bottom = 511.80554
+enemy = NodePath("..")
+
+[node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=983542349]
+libraries/ = SubResource("AnimationLibrary_3j6o6")
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

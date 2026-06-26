@@ -7,7 +7,6 @@ class_name HockJock
 #initializing variables
 func _ready() -> void:
 	super()
-	health_bar.max_hp = stats.hp
 	stats.curr_speed = stats.max_speed
 
 func _physics_process(delta: float) -> void:

@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://wbcb6tgmlxnp" path="res://Resources/EnemyStats.gd" id="1_a6v2h"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_a6v2h")
-hp = 50
+hp = 100
 atk_dmg = 20
 max_speed = 80
 curr_speed = 80
 knockback_resistance = 1.0
-cost = 1
+cost = 100
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"

@@ -1,8 +1,15 @@
 extends ProgressBar
 class_name HealthBar
 
-var max_hp: float
+
+@export var enemy : Enemy
+
 
 func _ready() -> void:
-	max_value = max_hp
-	value = max_hp
+	max_value = enemy.stats.hp
+	value = max_value
+
+
+
+func update(curr_hp : int) -> void:
+	value = curr_hp

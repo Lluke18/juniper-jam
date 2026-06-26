@@ -73,10 +73,10 @@ text = "See Leaderboard
 
 [node name="submit" type="Button" parent="." unique_id=774336865]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 400.0
-offset_right = 663.0
-offset_bottom = 431.0
+offset_left = 805.0
+offset_top = 628.0
+offset_right = 958.0
+offset_bottom = 659.0
 text = "Submit your score!"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1477575407]

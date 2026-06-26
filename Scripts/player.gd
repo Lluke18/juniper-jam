@@ -11,9 +11,10 @@ var is_puking: bool = false
 var in_minigame : bool = false
 @export var stats : CombatStats
 @export var sprite : AnimatedSprite2D
-@export var max_hp : int
-var curr_hp : int 
-@export var atk_dmg : int
+
+#@export var max_hp : int
+#var curr_hp : int 
+#@export var atk_dmg : int
 
 var acceleration : int = 25
 var friction : int =  5
@@ -24,7 +25,7 @@ var friction : int =  5
 
 func _ready() -> void:
 	time_scaler.time_scale = 1.0
-	curr_hp = max_hp
+	stats.current_hp = stats.max_hp
 	puke_bar.puke_bar_filled.connect(_on_puke_bar_filled)
 	#puke_bar.game_over.connect(_on_game_over)
 
@@ -67,9 +68,9 @@ func _on_hitbox_area_body_entered(body: Node2D) -> void:
 		take_damage(enemy_body.stats.atk_dmg)
 
 func take_damage(dmg_val : int):
-	curr_hp -= dmg_val
+	stats.current_hp -= dmg_val
 	print("wiz got damaged with: ", dmg_val)
-	if curr_hp <= 0:
+	if stats.current_hp <= 0:
 		print("ya died!")
 		get_tree().quit()
 		

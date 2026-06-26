@@ -2,7 +2,7 @@ extends Node2D
 
 @export var player : Player
 @export var scenes : Array[PackedScene]
-@export var enemies : Array[Enemy]
+#@export var enemies : Array[Enemy]
 @export var cost_arr : Dictionary[PackedScene, Enemy]
 @export var wave_timer : Timer
 @export var waves : Array[WaveInfo]

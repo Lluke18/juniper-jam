@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="juniper-jam"
-run/main_scene="uid://cawtv1l7pif7l"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Placeholders/icon.svg"
 
@@ -23,7 +22,6 @@ AudioManager="*uid://26mrwcgrw7p1"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

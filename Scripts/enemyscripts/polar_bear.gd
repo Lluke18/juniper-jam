@@ -4,10 +4,9 @@ class_name PolarBear
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-#initializing variables
+
 func _ready() -> void:
 	super()
-	health_bar.max_hp = stats.hp
 	stats.curr_speed = stats.max_speed
 
 func _physics_process(delta: float) -> void:

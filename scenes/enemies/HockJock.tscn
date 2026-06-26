@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://csmcj43oins0r"]
 
+[ext_resource type="Shader" uid="uid://cx0fddkbj7hwc" path="res://Shaders/hit.gdshader" id="1_atrgm"]
 [ext_resource type="Script" uid="uid://hmlybb26ocsd" path="res://Scripts/enemyscripts/hock_jock.gd" id="1_lx2wv"]
 [ext_resource type="Resource" uid="uid://chj2sl4cv31tn" path="res://Resources/TimeScale/time_scaler.tres" id="2_fvqej"]
 [ext_resource type="Resource" uid="uid://bwo8fc8f2lunr" path="res://Resources/test.tres" id="2_ixy7k"]
@@ -13,13 +14,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8mauw"]
 radius = 333.5184
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
+resource_local_to_scene = true
+shader = ExtResource("1_atrgm")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifpyu"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("3_3edk1")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("4_fvqej")
 }],
 "loop": 1,
@@ -27,10 +34,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("5_bdawo")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("6_vlx8m")
 }],
 "loop": 1,
@@ -41,13 +48,52 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifpyu"]
 radius = 188.8889
 
-[node name="HockJock" type="CharacterBody2D" unique_id=1652384883 groups=["enemies"]]
-scale = Vector2(0.09, 0.09)
+[sub_resource type="Animation" id="Animation_atrgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3tegm"]
+resource_name = "hit"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thuch"]
+_data = {
+&"RESET": SubResource("Animation_atrgm"),
+&"hit": SubResource("Animation_3tegm")
+}
+
+[node name="HockJock" type="CharacterBody2D" unique_id=1652384883 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
+scale = Vector2(0.18, 0.18)
 motion_mode = 1
 script = ExtResource("1_lx2wv")
 time_scaler = ExtResource("2_fvqej")
 stats = ExtResource("2_ixy7k")
 player_combat_stats = ExtResource("4_bdawo")
+anim_player = NodePath("hitFlashAnim")
 
 [node name="HitboxArea" type="Area2D" parent="." unique_id=1630271514 groups=["enemies"]]
 
@@ -59,16 +105,22 @@ shape = SubResource("CircleShape2D_8mauw")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1592708782]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736240079]
+material = SubResource("ShaderMaterial_xrivr")
+position = Vector2(-11.111112, 0)
 sprite_frames = SubResource("SpriteFrames_ifpyu")
-animation = &"walk_left"
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=283707622]
 shape = SubResource("CircleShape2D_ifpyu")
 
-[node name="HealthBar" parent="." unique_id=848823862 instance=ExtResource("9_vlx8m")]
+[node name="HealthBar" parent="." unique_id=848823862 node_paths=PackedStringArray("enemy") instance=ExtResource("9_vlx8m")]
 offset_left = -422.2222
 offset_top = 400.0
 offset_right = 411.11118
 offset_bottom = 455.55554
+enemy = NodePath("..")
+
+[node name="hitFlashAnim" type="AnimationPlayer" parent="." unique_id=1783971406]
+libraries/ = SubResource("AnimationLibrary_thuch")
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
