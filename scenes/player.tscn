@@ -35,6 +35,7 @@
 [ext_resource type="Script" uid="uid://cigp45vi54wg" path="res://Scripts/UI/player_camera.gd" id="28_hax0n"]
 [ext_resource type="PackedScene" uid="uid://cusigrw8dfas8" path="res://scenes/UI/PukeBar.tscn" id="31_t4otl"]
 [ext_resource type="LabelSettings" uid="uid://bob7mqib6f4xf" path="res://Resources/jack_font.tres" id="34_jc3p3"]
+[ext_resource type="PackedScene" uid="uid://fujp0m2jfpul" path="res://scenes/UI/pause_menu.tscn" id="36_jc3p3"]
 [ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="41_2dvfe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
@@ -321,6 +322,8 @@ combat_stats = ExtResource("2_4r5pv")
 wait_time = 5.0
 autostart = true
 ignore_time_scale = true
+
+[node name="PauseMenu" parent="UI" unique_id=101396324 instance=ExtResource("36_jc3p3")]
 
 [connection signal="area_entered" from="HurttboxArea" to="." method="_on_hurttbox_area_area_entered"]
 [connection signal="body_entered" from="HurttboxArea" to="." method="_on_hitbox_area_body_entered"]
