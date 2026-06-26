@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://muiui5yv71fe" path="res://Scripts/levelup/options_slot.gd" id="1_qwe0q"]
 [ext_resource type="Resource" uid="uid://dael080ppeurw" path="res://Resources/combat/combat_stats.tres" id="2_faeep"]
-[ext_resource type="Texture2D" uid="uid://dw5onns3xdi2n" path="res://Placeholders/block.jpg" id="2_h8vo3"]
+[ext_resource type="Texture2D" uid="uid://y1ssi71qd21w" path="res://Sprites/UI/Main Menu/background.png" id="3_h8vo3"]
 
 [node name="OptionsSlot" type="TextureButton" unique_id=1156552935]
 custom_minimum_size = Vector2(200, 300)
-offset_right = 250.0
+offset_right = 294.0
 offset_bottom = 450.0
 size_flags_horizontal = 3
 ignore_texture_size = true
@@ -16,10 +16,10 @@ combat_stats = ExtResource("2_faeep")
 
 [node name="NameLabel" type="Label" parent="." unique_id=546587859]
 layout_mode = 0
-offset_left = 99.0
-offset_top = 119.0
-offset_right = 145.0
-offset_bottom = 142.0
+offset_left = 127.0
+offset_top = 120.0
+offset_right = 173.0
+offset_bottom = 143.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
@@ -27,10 +27,10 @@ autowrap_mode = 2
 
 [node name="DescLabel" type="Label" parent="." unique_id=1033126059]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 232.0
-offset_right = 209.0
-offset_bottom = 257.0
+offset_left = 65.0
+offset_top = 234.0
+offset_right = 230.0
+offset_bottom = 259.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
@@ -40,7 +40,9 @@ autowrap_mode = 2
 show_behind_parent = true
 custom_minimum_size = Vector2(250, 450)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_h8vo3")
-region_rect = Rect2(46, 86.5, 451, 375.5)
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 294.0
+offset_bottom = 447.0
+texture = ExtResource("3_h8vo3")
+region_rect = Rect2(1.328598, -7.7972107, 1256.0369, 683.82263)

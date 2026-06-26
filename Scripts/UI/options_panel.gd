@@ -26,6 +26,6 @@ func _on_resolutions_item_selected(index: int) -> void:
 		Vector2i(2560, 1440)
 	]
 	DisplayServer.window_set_size(resolutions[index])
-
+ 
 func _on_close_pressed() -> void:
 	hide()
