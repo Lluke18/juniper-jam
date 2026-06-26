@@ -16,6 +16,7 @@ var required_key: Key = KEY_E
 var elapsed := 0.0
 var total_rotation := 0.0
 var previous_angle := 0.0
+var center_global_position: Vector2 = Vector2.ZERO
 
 #rotation to scored_points conversion method not decided yet
 signal minigame_over
@@ -32,8 +33,10 @@ func _ready():
 	
 	key_label.text = "Hold " + OS.get_keycode_string(required_key)
 	
+	center_global_position = center.global_position + center.pivot_offset
+	
 	previous_angle = (
-		get_global_mouse_position() - center.global_position
+		get_global_mouse_position() - center_global_position
 	).angle()
 
 func generate_random():
@@ -44,7 +47,7 @@ func _process(delta):
 	elapsed += delta
 
 	var angle = (
-		get_global_mouse_position() - center.global_position
+		get_global_mouse_position() - center_global_position
 	).angle()
 
 	var delta_angle = wrapf(
@@ -52,10 +55,12 @@ func _process(delta):
 		-PI,
 		PI
 	)
+	
+	#delta_angle = clamp(delta_angle, -0.8, 0.8)
 
 	#if orientation = -1, delta_angle needs to be negative
 	#if orientation = 1, delta_angle needts to be positive
-	if Input.is_key_pressed(required_key) and required_orientation * delta_angle > 0.0 and abs(delta_angle) > 0.05:
+	if Input.is_key_pressed(required_key) and required_orientation * delta_angle > 0.0 and abs(delta_angle) > 0.1:
 		total_rotation += abs(delta_angle)
 		required_score_bar.value = total_rotation
 		bonus_score_bar.value = total_rotation - total_required_rotation

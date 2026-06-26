@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy8r3unqcd27y"]
 
 [ext_resource type="Script" uid="uid://wepohrk2a7ft" path="res://Scripts/UI/spin_minigame.gd" id="1_7skiw"]
-[ext_resource type="Texture2D" uid="uid://d2hpkk8l7vwrd" path="res://Placeholders/Arrow.png" id="2_5sxo0"]
+[ext_resource type="Texture2D" uid="uid://cneudmmo5cxiq" path="res://Sprites/UI/Minigame/spin.png" id="2_5sxo0"]
 
 [node name="SpinMinigame" type="Control" unique_id=1809912839]
 layout_mode = 3
@@ -19,13 +19,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -321.0
-offset_right = 180.0
-offset_bottom = 39.0
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(180, 180)
+pivot_offset = Vector2(320, 320)
 texture = ExtResource("2_5sxo0")
 expand_mode = 1
 stretch_mode = 5
