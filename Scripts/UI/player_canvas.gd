@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var player_camera: PlayerCamera = $"../PlayerCamera"
 @onready var shuriken_spawner: ShurikenSpawner = $"../ShurikenSpawner"
 
+var sfx = preload("res://Audio/breakdance.wav")
 var anim_speed : float = 5.0
 
 var XP : int = 0:
@@ -41,7 +42,7 @@ func _on_timer_timeout() -> void:
 	var animations = ["high_foot", "lutz", "spin"]
 	var chosen = animations[randi() % animations.size()]
 	animated_sprite_2d.play(chosen)
-	
+	AudioManager.play_sfx(sfx)
 	player_camera.zoom_in()
 	time_scaler.time_scale = 0.1
 	animated_sprite_2d.speed_scale = 1.0

@@ -10,6 +10,8 @@ var sfx_volume : float = 0.5
 var music_player: AudioStreamPlayer
 var music_player_menu: AudioStreamPlayer
 
+var dj: AudioStreamPlayer
+
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
@@ -20,8 +22,13 @@ func _ready() -> void:
 	music_player_menu.bus = "Music"
 	music_player_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player_menu)
+	
+	dj = AudioStreamPlayer.new()
+	dj.bus = "Sfx"
+	dj.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(dj)
+	
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_master_bus = AudioServer.get_bus_index("Master")
 	_music_bus  = AudioServer.get_bus_index("Music")
 	_sfx_bus    = AudioServer.get_bus_index("Sfx")
@@ -55,3 +62,9 @@ func play_music(stream: AudioStream) -> void:
 func stop_music() -> void:
 	music_player.stop()
 	
+func play_sfx(stream: AudioStream) -> void:
+	dj.stream = stream
+	dj.play()
+	
+func stop_sfx() -> void:
+	dj.stop()

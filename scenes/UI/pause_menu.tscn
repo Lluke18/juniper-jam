@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://fujp0m2jfpul"]
+
+[ext_resource type="Script" uid="uid://cr065w3nvioa2" path="res://Scripts/UI/pause_menu.gd" id="1_f7s5a"]
+[ext_resource type="Texture2D" uid="uid://y1ssi71qd21w" path="res://Sprites/UI/Main Menu/background.png" id="2_cosra"]
+[ext_resource type="PackedScene" uid="uid://bhm5xkhsb3n7c" path="res://scenes/UI/options_panel.tscn" id="3_gunp4"]
+[ext_resource type="AudioStream" uid="uid://csgx3n7aukv3x" path="res://Audio/breakdance.wav" id="4_d3nmb"]
+[ext_resource type="Texture2D" uid="uid://6e0vad6stxdy" path="res://Sprites/UI/Main Menu/close - Copy.png" id="4_nolku"]
+[ext_resource type="Script" uid="uid://dow6oemof7unt" path="res://Scripts/UI/scene_switcher.gd" id="5_ae3lb"]
+[ext_resource type="Texture2D" uid="uid://0iu873cuos4s" path="res://Sprites/UI/Main Menu/settings.png" id="6_dwgly"]
+[ext_resource type="Texture2D" uid="uid://84b3t3rcein8" path="res://Sprites/UI/Main Menu/quit.png" id="7_t5gj7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3nmb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwpuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo4lo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4kyc"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=101396324]
+process_mode = 3
+layer = 11
+script = ExtResource("1_f7s5a")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1184046592]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -353.5
+offset_right = 557.0
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cosra")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1432574191]
+material = SubResource("ShaderMaterial_d3nmb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="PanelContainer" type="Control" parent="." unique_id=804982913]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -199.0
+offset_right = 244.5
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PanelContainer" unique_id=358768865]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.25
+offset_top = -182.5
+offset_right = 106.75
+offset_bottom = -140.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qwpuv")
+script = ExtResource("5_ae3lb")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Resume" unique_id=65874034]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.375
+offset_top = -6.0
+offset_right = 101.625
+offset_bottom = 48.0
+grow_horizontal = 2
+texture = ExtResource("4_nolku")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Options" type="Button" parent="PanelContainer" unique_id=725115520]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 187.0
+offset_top = 137.0
+offset_right = 365.0
+offset_bottom = 173.0
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bo4lo")
+script = ExtResource("5_ae3lb")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Options" unique_id=585610130]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -15.0
+offset_right = 188.0
+offset_bottom = 43.0
+texture = ExtResource("6_dwgly")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Quit" type="Button" parent="PanelContainer" unique_id=465673851]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 161.0
+offset_top = 297.0
+offset_right = 374.0
+offset_bottom = 352.0
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s4kyc")
+script = ExtResource("5_ae3lb")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Quit" unique_id=1628994295]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.943
+anchor_bottom = 0.943
+offset_left = 6.0
+offset_top = -52.662994
+offset_right = 200.0
+offset_bottom = 1.3370056
+texture = ExtResource("7_t5gj7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OptionsPanel" parent="." unique_id=355889237 instance=ExtResource("3_gunp4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=901482915]
+stream = ExtResource("4_d3nmb")
+bus = &"Sfx"
+
+[connection signal="pressed" from="PanelContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PanelContainer/Quit" to="." method="_on_quit_pressed"]
