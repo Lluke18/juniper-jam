@@ -7,6 +7,6 @@ script = ExtResource("1_wb0qc")
 wave_timer = NodePath("WaveTimer")
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1328154453]
-wait_time = 1000.0
+wait_time = 15.0
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
