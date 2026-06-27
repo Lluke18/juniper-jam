@@ -5,7 +5,7 @@ class_name CombatStats
 
 const MAX_NUMBER_OF_SHURIKENS : int = 8
 const MAX_CRIT_CHANCE : int = 50
-const MAX_SPEED : int = 500
+const MAX_SPEED : int = 400
 const MAX_FIRE_RATE : int = 0.1
 const MAX_RANGE : int = 600
 

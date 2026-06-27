@@ -45,12 +45,12 @@ func reset_progress():
 	
 	combat_stats.current_hp = 100
 
-	combat_stats.current_number_of_shurikens = 2
+	combat_stats.current_number_of_shurikens = 3
 	combat_stats.fire_rate = 0.5
 	combat_stats.current_speed = 275
-	combat_stats.crit_chance = 5
+	combat_stats.crit_chance = 10
 	combat_stats.range = 300
 
 	combat_stats.max_hp = 100
-	combat_stats.damage = 25
+	combat_stats.damage = 40
 	combat_stats.shuriken_speed = 200

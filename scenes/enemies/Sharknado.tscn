@@ -37,7 +37,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifpyu"]
-radius = 187.5
+radius = 116.0
 height = 680.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gwn4"]
@@ -83,10 +83,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btnri"]
-radius = 243.99997
-height = 907.9999
+radius = 161.99998
+height = 559.99994
 
 [node name="Sharknado" type="CharacterBody2D" unique_id=409184938 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
+y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8kei1")
 time_scaler = ExtResource("2_8mauw")
@@ -94,6 +95,7 @@ stats = ExtResource("3_cmm8x")
 anim_player = NodePath("hitFlashAnim")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086406569]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_7gwn4")
 sprite_frames = SubResource("SpriteFrames_ifpyu")
 animation = &"spin"
@@ -126,7 +128,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1002500112]
-position = Vector2(-2, 8)
+position = Vector2(-2.0000002, 88)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CapsuleShape2D_btnri")
 

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_bn7b5")
-current_number_of_shurikens = 2
-damage = 25.0
+current_number_of_shurikens = 3
+crit_chance = 10
+damage = 40.0
 metadata/_custom_type_script = "uid://vhvjq4bcdqce"

@@ -89,6 +89,7 @@ _data = {
 radius = 290.3063
 
 [node name="PolarBear" type="CharacterBody2D" unique_id=344848122 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
+y_sort_enabled = true
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_48jrj")
 time_scaler = ExtResource("2_cajnv")
@@ -96,6 +97,7 @@ stats = ExtResource("3_5fobk")
 anim_player = NodePath("hitFlashAnim")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065400979]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_xrivr")
 sprite_frames = SubResource("SpriteFrames_ifpyu")
 animation = &"walk_right"

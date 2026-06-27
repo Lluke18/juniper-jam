@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_2x7jd")
 wave_value = 10
-wave_duration = 10.0
+wave_duration = 5.0
 wave_quota = 30
 metadata/_custom_type_script = "uid://co864wqb3y32l"

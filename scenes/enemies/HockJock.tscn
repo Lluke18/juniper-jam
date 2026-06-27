@@ -89,6 +89,7 @@ _data = {
 size = Vector2(458.33328, 527.7777)
 
 [node name="HockJock" type="CharacterBody2D" unique_id=1652384883 node_paths=PackedStringArray("anim_player") groups=["enemies"]]
+y_sort_enabled = true
 scale = Vector2(0.18, 0.18)
 motion_mode = 1
 script = ExtResource("1_lx2wv")
@@ -106,6 +107,7 @@ shape = SubResource("CircleShape2D_8mauw")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1592708782]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1736240079]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_xrivr")
 position = Vector2(-11.111112, 0)
 sprite_frames = SubResource("SpriteFrames_ifpyu")

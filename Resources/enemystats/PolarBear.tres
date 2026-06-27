@@ -6,11 +6,11 @@
 script = ExtResource("1_m8m5t")
 hp = 200
 atk_dmg = 30
-max_speed = 60
-curr_speed = 60
+max_speed = 100
+curr_speed = 100
 knockback_resistance = 10.0
 cost = 24
 score_points = 300
-hp_multiplier = 1.2
-atk_multiplier = 1.2
+hp_multiplier = 1.5
+atk_multiplier = 1.5
 metadata/_custom_type_script = "uid://wbcb6tgmlxnp"

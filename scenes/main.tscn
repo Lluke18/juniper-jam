@@ -9,11 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dmv36odapk15g" path="res://scenes/enemies/Sharknado.tscn" id="6_tipki"]
 [ext_resource type="Script" uid="uid://co864wqb3y32l" path="res://Resources/waves/wave_info.gd" id="7_85g3d"]
 [ext_resource type="Resource" uid="uid://dme2alq1w1hwu" path="res://Resources/waves/test_wave.tres" id="8_choun"]
-[ext_resource type="Resource" uid="uid://c0a1xn2113uo4" path="res://Resources/enemystats/HockJock.tres" id="10_trceg"]
-[ext_resource type="Resource" uid="uid://ordhv6d3e8vb" path="res://Resources/enemystats/PolarBear.tres" id="11_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://0nloaxjmn7l2" path="res://UI/GameOver.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://gcbk1f2nbtgi" path="res://UI/leaderboard.tscn" id="12_eb6dy"]
-[ext_resource type="Resource" uid="uid://c3j3petink7i1" path="res://Resources/enemystats/Sharknado.tres" id="12_jkv2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(1949.5239, 160.69818)
@@ -85,18 +82,15 @@ wave_enemy_position = NodePath("../Path2D/PathFollow2D/Marker2D")
 process_mode = 4
 visible = false
 position = Vector2(-800, -272)
-stats = ExtResource("10_trceg")
 
 [node name="PolarBear" parent="EnemySpawner" unique_id=344848122 instance=ExtResource("5_o6xl0")]
 process_mode = 4
 visible = false
-stats = ExtResource("11_a8y0u")
 
 [node name="Sharknado" parent="EnemySpawner" unique_id=409184938 instance=ExtResource("6_tipki")]
 process_mode = 4
 visible = false
 position = Vector2(-826, -317)
-stats = ExtResource("12_jkv2x")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2100808560]
 visible = false

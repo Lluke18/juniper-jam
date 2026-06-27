@@ -212,6 +212,18 @@ _data = {
 &"invincibility": SubResource("Animation_giy8y")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2b1d"]
+bg_color = Color(0.007843138, 0.1254902, 0.30588236, 0.22745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="LabelSettings" id="LabelSettings_j2b1d"]
 font = ExtResource("34_t4otl")
 font_size = 48
@@ -220,6 +232,7 @@ outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("canvas_layer", "sprite", "hit_timer", "hurt_col") groups=["player"]]
+y_sort_enabled = true
 script = ExtResource("1_g2els")
 canvas_layer = NodePath("UI")
 time_scaler = ExtResource("2_60mlk")
@@ -229,6 +242,7 @@ hit_timer = NodePath("HurttboxArea/Timer")
 hurt_col = NodePath("HurttboxArea/CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1560810833]
+y_sort_enabled = true
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_13qdw")
 animation = &"high_foot"
@@ -280,10 +294,11 @@ time_scaler = ExtResource("2_60mlk")
 
 [node name="XP" type="ProgressBar" parent="UI" unique_id=126290240]
 unique_name_in_owner = true
-offset_left = -1.0
-offset_top = -2.0
+self_modulate = Color(0.11764706, 0.43529412, 0.8980392, 1)
 offset_right = 1920.0
-offset_bottom = 29.0
+offset_bottom = 31.0
+tooltip_text = "XP"
+theme_override_styles/background = SubResource("StyleBoxFlat_j2b1d")
 show_percentage = false
 
 [node name="Level" type="Label" parent="UI/XP" unique_id=1230484014]

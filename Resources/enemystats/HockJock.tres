@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_y2or7")
 hp = 100
-atk_dmg = 20
+atk_dmg = 15
 max_speed = 80
 curr_speed = 80
 cost = 2

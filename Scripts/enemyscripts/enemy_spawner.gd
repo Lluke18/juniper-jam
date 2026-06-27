@@ -33,7 +33,7 @@ func generate_wave():
 	spawn_wave(curr_wave_val)
 	
 	curr_wave += 1
-	waves[0].wave_duration *= 1.2
+	waves[0].wave_duration *= 1.1
 	upgrade_enemies(curr_wave)
 	wave_timer.wait_time = waves[0].wave_duration
 	wave_timer.start()
