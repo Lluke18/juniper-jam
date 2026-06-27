@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_qsukl")
 title = "Range UP!"
-description = "Your shurikens now travel more"
+description = "Increases the reach of your Shurikens"
 stat = "range"
 value = 50.0
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

@@ -27,11 +27,9 @@ func update_animation() -> void:
 		return
 
 	if player.global_position.x < global_position.x:
-		if animated_sprite.animation != "walk_left":
-			animated_sprite.play("walk_left")
+		animated_sprite.play("walk_left")
 	else:
-		if animated_sprite.animation != "walk_right":
-			animated_sprite.play("walk_right")
+		animated_sprite.play("walk_right")
 
 #actually a hurtbox
 func _on_hitbox_area_area_entered(area: Area2D) -> void:

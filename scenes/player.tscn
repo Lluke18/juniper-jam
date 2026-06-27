@@ -34,8 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://bpiymk3qbcm7q" path="res://Sprites/MC/correctly scaled walking anims/back_walk2.png" id="27_hhpqf"]
 [ext_resource type="Script" uid="uid://cigp45vi54wg" path="res://Scripts/UI/player_camera.gd" id="28_hax0n"]
 [ext_resource type="PackedScene" uid="uid://cusigrw8dfas8" path="res://scenes/UI/PukeBar.tscn" id="31_t4otl"]
-[ext_resource type="LabelSettings" uid="uid://bob7mqib6f4xf" path="res://Resources/jack_font.tres" id="34_jc3p3"]
+[ext_resource type="FontFile" uid="uid://c1xqdqs6pucvw" path="res://Sprites/font/Asimovian-Regular.ttf" id="34_t4otl"]
 [ext_resource type="PackedScene" uid="uid://fujp0m2jfpul" path="res://scenes/UI/pause_menu.tscn" id="36_jc3p3"]
+[ext_resource type="PackedScene" uid="uid://b45ks6ilvrxhb" path="res://scenes/UI/TutorialText.tscn" id="36_t4otl"]
 [ext_resource type="PackedScene" uid="uid://tmhc6a0k2mc2" path="res://scenes/UI/HealthBar.tscn" id="41_2dvfe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
@@ -211,6 +212,13 @@ _data = {
 &"invincibility": SubResource("Animation_giy8y")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_j2b1d"]
+font = ExtResource("34_t4otl")
+font_size = 48
+font_color = Color(0.11636094, 0.4350781, 0.8979331, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1212704905 node_paths=PackedStringArray("canvas_layer", "sprite", "hit_timer", "hurt_col") groups=["player"]]
 script = ExtResource("1_g2els")
 canvas_layer = NodePath("UI")
@@ -282,16 +290,16 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.943
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.963
-offset_left = -26.503052
-offset_top = 18.5
-offset_right = -38.109985
-offset_bottom = 12.146999
+anchor_left = 0.99300003
+anchor_top = 1.097
+anchor_right = 0.99300003
+anchor_bottom = 1.097
+offset_left = -151.5531
+offset_top = -0.0069999695
+offset_right = -0.5531006
+offset_bottom = 62.993
 text = "Level 1"
-label_settings = ExtResource("34_jc3p3")
+label_settings = SubResource("LabelSettings_j2b1d")
 
 [node name="PukeBar" parent="UI" unique_id=351104288 instance=ExtResource("31_t4otl")]
 offset_top = 48.0
@@ -299,6 +307,19 @@ offset_right = 789.0
 offset_bottom = 197.0
 expand_mode = 1
 stretch_mode = 5
+
+[node name="TutorialText" parent="UI" unique_id=1147288695 instance=ExtResource("36_t4otl")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -202.5
+offset_right = 127.5
+offset_bottom = -165.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="OptionsContainer" type="HBoxContainer" parent="UI" unique_id=1419738735]
 unique_name_in_owner = true

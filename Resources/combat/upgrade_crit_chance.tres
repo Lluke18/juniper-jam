@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_4u44a")
 title = "Crit Chance UP!"
-description = "Increases chances of shooting a Crit Shuriken"
+description = "Increases chance of shooting a CRITICAL Shuriken"
 stat = "crit_chance"
 value = 5.0
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

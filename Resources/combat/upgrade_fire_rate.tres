@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_s71uf")
 title = "Fire Rate UP!"
-description = "You now shoot shurikens quicker"
+description = "You shoot Shurikens more often"
 stat = "fire_rate"
 value = 0.1
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

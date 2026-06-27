@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_6cl1i")
 title = "Health UP!"
-description = "Mundo goes where he pleases"
+description = "Increases your vitality"
 stat = "max_hp"
 value = 5.0
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

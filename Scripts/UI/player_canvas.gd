@@ -19,7 +19,7 @@ var total_XP : int = 0
 var level : int = 1:
 	set(value):
 		level = value
-		%Level.text = "Lv " + str(value)
+		%Level.text = "Level " + str(value)
 		if level > 1:
 			%OptionsContainer.show_option()
 			
@@ -49,6 +49,7 @@ func _on_timer_timeout() -> void:
 	
 	var new_minigame = SPIN_MINIGAME.instantiate()
 	add_child(new_minigame)
+	new_minigame.level = level
 	new_minigame.minigame_over.connect(_on_minigame_over)
 	new_minigame.minigame_won.connect(_on_minigame_won)
 	new_minigame.minigame_lost.connect(_on_minigame_lost)

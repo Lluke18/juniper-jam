@@ -3,10 +3,18 @@
 [ext_resource type="Script" uid="uid://wepohrk2a7ft" path="res://Scripts/UI/spin_minigame.gd" id="1_7skiw"]
 [ext_resource type="Texture2D" uid="uid://cneudmmo5cxiq" path="res://Sprites/UI/Minigame/spin.png" id="2_5sxo0"]
 [ext_resource type="Texture2D" uid="uid://2mw5pu5ffq3i" path="res://Sprites/UI/Minigame/points_empty.png" id="3_h3tw2"]
+[ext_resource type="FontFile" uid="uid://c1xqdqs6pucvw" path="res://Sprites/font/Asimovian-Regular.ttf" id="3_njt06"]
 [ext_resource type="Texture2D" uid="uid://5w3karkae51a" path="res://Sprites/UI/Minigame/normal_points.png" id="4_5i1gy"]
 [ext_resource type="Texture2D" uid="uid://dw2otxdpr41or" path="res://Sprites/UI/Minigame/bonus_points.png" id="5_5i1gy"]
 [ext_resource type="Texture2D" uid="uid://ba246h1vdr6md" path="res://Sprites/UI/Minigame/clock.png" id="6_eqavl"]
 [ext_resource type="Texture2D" uid="uid://c8sq7pfmxm73u" path="res://Sprites/UI/Minigame/clock_time.png" id="7_njt06"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iyw8w"]
+font = ExtResource("3_njt06")
+font_size = 67
+font_color = Color(0.11636094, 0.4350781, 0.8979331, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="SpinMinigame" type="Control" unique_id=1809912839]
 layout_mode = 3
@@ -35,21 +43,22 @@ texture = ExtResource("2_5sxo0")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OrientationLabel" type="Label" parent="." unique_id=432908763]
+[node name="IndicationLabel" type="Label" parent="." unique_id=432908763]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -449.0
-offset_right = 20.0
-offset_bottom = -426.0
+offset_left = -673.0
+offset_top = -64.0
+offset_right = -633.0
+offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_iyw8w")
 
-[node name="KeyLabel" type="Label" parent="." unique_id=1802461873]
+[node name="FeedbackLabel" type="Label" parent="." unique_id=1802461873]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

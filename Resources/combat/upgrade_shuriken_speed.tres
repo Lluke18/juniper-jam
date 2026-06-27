@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_78jgg")
 title = "Shuriken Speed UP!"
-description = "SHING SHING SHING"
+description = "Increases the Shuriken flying speed"
 stat = "shuriken_speed"
 value = 1.0
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

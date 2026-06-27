@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b45ks6ilvrxhb"]
+
+[ext_resource type="Script" uid="uid://br1a28cncjnnq" path="res://Scripts/UI/tutorial_text.gd" id="1_730k5"]
+[ext_resource type="FontFile" uid="uid://c1xqdqs6pucvw" path="res://Sprites/font/Asimovian-Regular.ttf" id="1_gtetd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1avp"]
+font = ExtResource("1_gtetd")
+font_size = 36
+font_color = Color(0.11636094, 0.4350781, 0.8979331, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TutorialText" type="Label" unique_id=1147288695]
+offset_right = 58.0
+offset_bottom = 23.0
+text = "Move using W,A,S,D"
+label_settings = SubResource("LabelSettings_h1avp")
+script = ExtResource("1_730k5")

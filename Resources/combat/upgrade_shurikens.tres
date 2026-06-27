@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_i5lpa")
 title = "Shuriken Number UP!"
-description = "You're a ninja, Wizzy"
+description = "You shoot one extra Shuriken"
 stat = "current_number_of_shurikens"
 value = 1.0
 metadata/_custom_type_script = "uid://cgpc4ly5hs6ki"

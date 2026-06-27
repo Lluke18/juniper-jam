@@ -130,6 +130,7 @@ offset_left = 1539.0
 offset_top = 813.0
 offset_right = 1605.2834
 offset_bottom = 844.0
+scale = Vector2(2, 2)
 text = "Quit
 "
 script = ExtResource("3_l3i3o")
