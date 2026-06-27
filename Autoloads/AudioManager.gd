@@ -10,6 +10,8 @@ var sfx_volume : float = 0.5
 var music_player: AudioStreamPlayer
 var music_player_menu: AudioStreamPlayer
 
+var coming_from_credits: bool = false
+
 var dj: AudioStreamPlayer
 
 func _ready() -> void:

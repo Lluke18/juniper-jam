@@ -12,9 +12,11 @@ extends CanvasLayer
 func _ready() -> void:
 	options_panel.visible = false
 	options_panel.visibility_changed.connect(_on_options_visibility_changed)
-	if not AudioManager.music_player_menu.playing:
-		var stream = preload("res://Audio/HaroldParanormalInstigatorTheme.wav") 
+	if not AudioManager.coming_from_credits:
+		AudioManager.stop_music()
+		var stream = preload("res://Audio/HaroldParanormalInstigatorTheme.wav")
 		AudioManager.play_music(stream)
+	AudioManager.coming_from_credits = false
 
 func _on_options_visibility_changed() -> void:
 	var is_visible = options_panel.visible

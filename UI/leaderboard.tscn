@@ -14,7 +14,7 @@ font_color = Color(0.54901963, 0.06666667, 0.019607844, 1)
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 13
-shadow_color = Color(0.38039216, 0.11764706, 0.14509805, 1)
+shadow_color = Color(0.15449253, 0.028982084, 0.04127882, 1)
 
 [node name="leaderboard" type="Control" unique_id=1525802796 node_paths=PackedStringArray("vbox")]
 layout_mode = 3
